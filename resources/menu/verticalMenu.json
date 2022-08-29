@@ -1,0 +1,78 @@
+{
+  "menu": [
+    {
+      "url": "/",
+      "name": "Dashboard",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "menuHeader": "Master"
+    },
+    {
+      "url": "cabang",
+      "name": "Cabang",
+      "icon": "menu-icon tf-icons bx bxs-book-content",
+      "slug": "cabang"
+    },
+    {
+      "url": "role",
+      "name": "Role",
+      "icon": "menu-icon tf-icons bx bx-accessibility",
+      "slug": "role"
+    },
+    {
+      "url": "subsidi",
+      "name": "Subsidi",
+      "icon": "menu-icon tf-icons bx bxs-discount",
+      "slug": "subsidi"
+    },
+    {
+      "menuHeader": "Komponen"
+    },
+    {
+      "url": "#",
+      "name": "Pengguna",
+      "icon": "menu-icon tf-icons bx bxs-user-detail",
+      "slug": "branch"
+    },
+    {
+      "url": "#",
+      "name": "Produk",
+      "icon": "menu-icon tf-icons bx bx-book",
+      "slug": "branch"
+    },
+    {
+      "menuHeader": "Transaksi"
+    },
+    {
+      "url": "#",
+      "name": "Pemesanan",
+      "icon": "menu-icon tf-icons bx bx-shopping-bag",
+      "slug": "branch"
+    },
+    {
+      "url": "#",
+      "name": "Mediator",
+      "icon": "menu-icon tf-icons bx bx-money",
+      "slug": "branch"
+    },
+    {
+      "menuHeader": "Misc"
+    },
+    {
+      "url": "https://themeselection.com/support/",
+      "icon": "menu-icon tf-icons bx bx-support",
+      "name": "Support",
+      "slug": "support",
+      "target": "_blank"
+    },
+    {
+      "url": "https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/laravel-introduction.html",
+      "icon": "menu-icon tf-icons bx bx-file",
+      "name": "Documentation",
+      "slug": "documentation",
+      "target": "_blank"
+    }
+  ]
+}
