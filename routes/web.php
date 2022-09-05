@@ -46,3 +46,19 @@ Route::post('/role/store', $controller_path . '\role\RoleController@store')->nam
 Route::get('/role/edit/{id}', $controller_path . '\role\RoleController@edit')->name('role.edit')->middleware('Role:SUPERADMIN');
 Route::post('/role/update/{id}', $controller_path . '\role\RoleController@update')->name('role.update')->middleware('Role:SUPERADMIN');
 Route::get('/role/delete/{id}', $controller_path . '\role\RoleController@delete')->name('role.delete')->middleware('Role:SUPERADMIN');
+
+// role
+Route::get('/user', $controller_path . '\user\UserController@index')->name('user.index')->middleware('Role:SUPERADMIN');
+Route::get('/user/create', $controller_path . '\user\UserController@create')->name('user.create')->middleware('Role:SUPERADMIN');
+Route::post('/user/store', $controller_path . '\user\UserController@store')->name('user.store')->middleware('Role:SUPERADMIN');
+Route::get('/user/edit/{id}', $controller_path . '\user\UserController@edit')->name('user.edit')->middleware('Role:SUPERADMIN');
+Route::post('/user/update/{id}', $controller_path . '\user\UserController@update')->name('user.update')->middleware('Role:SUPERADMIN');
+Route::get('/user/delete/{id}', $controller_path . '\user\UserController@delete')->name('user.delete')->middleware('Role:SUPERADMIN');
+
+// role
+Route::get('/product', $controller_path . '\product\ProductController@index')->name('product.index')->middleware('Role:SUPERADMIN');
+Route::get('/product/create', $controller_path . '\product\ProductController@create')->name('product.create')->middleware('Role:SUPERADMIN');
+Route::post('/product/store', $controller_path . '\product\ProductController@store')->name('product.store')->middleware('Role:SUPERADMIN');
+Route::get('/product/edit/{id}', $controller_path . '\product\ProductController@edit')->name('product.edit')->middleware('Role:SUPERADMIN');
+Route::post('/product/update/{id}', $controller_path . '\product\ProductController@update')->name('product.update')->middleware('Role:SUPERADMIN');
+Route::get('/product/delete/{id}', $controller_path . '\product\ProductController@delete')->name('product.delete')->middleware('Role:SUPERADMIN');

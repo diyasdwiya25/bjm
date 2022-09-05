@@ -7,6 +7,21 @@
       "slug": "dashboard-analytics"
     },
     {
+      "menuHeader": "Transaksi"
+    },
+    {
+      "url": "#",
+      "name": "Pemesanan",
+      "icon": "menu-icon tf-icons bx bx-shopping-bag",
+      "slug": "branch"
+    },
+    {
+      "url": "#",
+      "name": "Mediator",
+      "icon": "menu-icon tf-icons bx bx-money",
+      "slug": "branch"
+    },
+    {
       "menuHeader": "Master"
     },
     {
@@ -31,32 +46,18 @@
       "menuHeader": "Komponen"
     },
     {
-      "url": "#",
+      "url": "user",
       "name": "Pengguna",
       "icon": "menu-icon tf-icons bx bxs-user-detail",
-      "slug": "branch"
+      "slug": "user"
     },
     {
-      "url": "#",
+      "url": "product",
       "name": "Produk",
       "icon": "menu-icon tf-icons bx bx-book",
-      "slug": "branch"
+      "slug": "product"
     },
-    {
-      "menuHeader": "Transaksi"
-    },
-    {
-      "url": "#",
-      "name": "Pemesanan",
-      "icon": "menu-icon tf-icons bx bx-shopping-bag",
-      "slug": "branch"
-    },
-    {
-      "url": "#",
-      "name": "Mediator",
-      "icon": "menu-icon tf-icons bx bx-money",
-      "slug": "branch"
-    },
+    
     {
       "menuHeader": "Misc"
     },
