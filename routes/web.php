@@ -62,3 +62,34 @@ Route::post('/product/store', $controller_path . '\product\ProductController@sto
 Route::get('/product/edit/{id}', $controller_path . '\product\ProductController@edit')->name('product.edit')->middleware('Role:SUPERADMIN');
 Route::post('/product/update/{id}', $controller_path . '\product\ProductController@update')->name('product.update')->middleware('Role:SUPERADMIN');
 Route::get('/product/delete/{id}', $controller_path . '\product\ProductController@delete')->name('product.delete')->middleware('Role:SUPERADMIN');
+
+// booking
+Route::get('/booking', $controller_path . '\booking\BookingController@index')->name('booking.index')->middleware('Role:SUPERADMIN');
+Route::get('/booking/create', $controller_path . '\booking\BookingController@create')->name('booking.create')->middleware('Role:SUPERADMIN');
+Route::post('/booking/store', $controller_path . '\booking\BookingController@store')->name('booking.store')->middleware('Role:SUPERADMIN');
+Route::get('/booking/edit/{id}', $controller_path . '\booking\BookingController@edit')->name('booking.edit')->middleware('Role:SUPERADMIN');
+Route::post('/booking/update/{id}', $controller_path . '\booking\BookingController@update')->name('booking.update')->middleware('Role:SUPERADMIN');
+Route::get('/booking/delete/{id}', $controller_path . '\booking\BookingController@delete')->name('booking.delete')->middleware('Role:SUPERADMIN');
+Route::get('/booking/approve/{id}', $controller_path . '\booking\BookingController@approve')->name('booking.approve')->middleware('Role:SUPERADMIN');
+// mediator
+Route::get('/mediator', $controller_path . '\mediator\MediatorController@index')->name('mediator.index')->middleware('Role:SUPERADMIN');
+Route::get('/mediator/create', $controller_path . '\mediator\MediatorController@create')->name('mediator.create')->middleware('Role:SUPERADMIN');
+Route::post('/mediator/store', $controller_path . '\mediator\MediatorController@store')->name('mediator.store')->middleware('Role:SUPERADMIN');
+Route::get('/mediator/edit/{id}', $controller_path . '\mediator\MediatorController@edit')->name('mediator.edit')->middleware('Role:SUPERADMIN');
+Route::post('/mediator/update/{id}', $controller_path . '\mediator\MediatorController@update')->name('mediator.update')->middleware('Role:SUPERADMIN');
+Route::get('/mediator/delete/{id}', $controller_path . '\mediator\MediatorController@delete')->name('mediator.delete')->middleware('Role:SUPERADMIN');
+
+// submission stnk & bpkb
+Route::get('/submission/stnk', $controller_path . '\submission\SubmissionStnkController@index')->name('submission.stnk.index')->middleware('Role:SUPERADMIN');
+Route::get('/submission/stnk/create', $controller_path . '\submission\SubmissionStnkController@create')->name('submission.stnk.create')->middleware('Role:SUPERADMIN');
+Route::post('/submission/stnk/store', $controller_path . '\submission\SubmissionStnkController@store')->name('submission.stnk.store')->middleware('Role:SUPERADMIN');
+Route::get('/submission/stnk/edit/{id}', $controller_path . '\submission\SubmissionStnkController@edit')->name('submission.stnk.edit')->middleware('Role:SUPERADMIN');
+Route::post('/submission/stnk/update/{id}', $controller_path . '\submission\SubmissionStnkController@update')->name('submission.stnk.update')->middleware('Role:SUPERADMIN');
+Route::get('/submission/stnk/delete/{id}', $controller_path . '\submission\SubmissionStnkController@delete')->name('submission.stnk.delete')->middleware('Role:SUPERADMIN');
+
+Route::get('/submission/bpkb', $controller_path . '\submission\SubmissionBpkbController@index')->name('submission.bpkb.index')->middleware('Role:SUPERADMIN');
+Route::get('/submission/bpkb/create', $controller_path . '\submission\SubmissionBpkbController@create')->name('submission.bpkb.create')->middleware('Role:SUPERADMIN');
+Route::post('/submission/bpkb/store', $controller_path . '\submission\SubmissionBpkbController@store')->name('submission.bpkb.store')->middleware('Role:SUPERADMIN');
+Route::get('/submission/bpkb/edit/{id}', $controller_path . '\submission\SubmissionBpkbController@edit')->name('submission.bpkb.edit')->middleware('Role:SUPERADMIN');
+Route::post('/submission/bpkb/update/{id}', $controller_path . '\submission\SubmissionBpkbController@update')->name('submission.bpkb.update')->middleware('Role:SUPERADMIN');
+Route::get('/submission/bpkb/delete/{id}', $controller_path . '\submission\SubmissionBpkbController@delete')->name('submission.bpkb.delete')->middleware('Role:SUPERADMIN');

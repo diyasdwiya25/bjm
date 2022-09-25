@@ -30,55 +30,24 @@
         });
     });
 
-    $('body').on('click', '.sa-add', function (e) {
+    $('body').on('click', '.sa-approve', function (e) {
         e.preventDefault();
         var url = $(this).attr('href');
         var postId = $(this).data('id'); 
         swal({
-            title: "are u sure?",
-            text: "You will receive a promotion in your email",
+            title: "Apakah anda yakin ?",
+            text: "Kamu akan mensetujui transaksi ini",
             type: "success",
             html: true,
             showCancelButton: true,
             confirmButtonClass: 'btn-success waves-effect waves-light',
-            confirmButtonText: "Ok, sure",
-            cancelButtonText: "Cancel",
+            confirmButtonText: "Ok, yakin",
+            cancelButtonText: "Batal",
             closeOnConfirm: true,
             closeOnCancel: true
         },
         function(){
             window.location.href = url;
-        });
-    });
-
-    $('body').on('click', '.sa-send', function (e) {
-        e.preventDefault();
-        var url = $(this).attr('href');
-        var postId = $(this).data('id'); 
-        swal({
-            title: "are u sure?",
-            text: "You will send a newsletter to your subscribes",
-            type: "success",
-            html: true,
-            showCancelButton: true,
-            confirmButtonClass: 'btn-success waves-effect waves-light',
-            confirmButtonText: "Ok, sure",
-            cancelButtonText: "Cancel",
-            closeOnConfirm: true,
-            closeOnCancel: true
-        },
-        function(){
-            window.location.href = url;
-        });
-    });
-
-    $('body').on('click', '.sa-info', function (e) {
-        e.preventDefault();
-        swal({
-            title: "Perhatian", 
-            text: "Gambar tidak ditemukan atau belum dipotong", 
-            type: "error",  
-            html: true
         });
     });
 </script>

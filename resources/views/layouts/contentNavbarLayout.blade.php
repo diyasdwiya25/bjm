@@ -79,3 +79,9 @@ $container = ($container ?? 'container-xxl');
   </div>
   <!-- / Layout wrapper -->
   @endsection
+
+  @section('layoutFooter')
+
+  @yield('footer')
+
+  @endsection
