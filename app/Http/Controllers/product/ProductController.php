@@ -24,7 +24,7 @@ class ProductController extends Controller
    {
 		try {
             $product_count = Product::count();
-            $product_id = "P000".$product_count;
+            $product_id = "P000".$product_count + 1;
             Product::create([
                'id' => $product_id,
                'product_code' => $request->product_code,
