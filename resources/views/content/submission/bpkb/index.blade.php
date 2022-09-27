@@ -1,15 +1,15 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'List - Pengajuan Bpkb')
+@section('title', 'List - Pengajuan BPKB')
 
 @section('content')
 <h4 class="fw-bold py-3 mb-4">
-  <span class="text-muted fw-light">Pengajuan Bpkb /</span> List
+  <span class="text-muted fw-light">Pengajuan BPKB /</span> List
 </h4>
 
 <!-- Bordered Table -->
 <div class="card">
-  <h5 class="card-header">Pengajuan Bpkb</h5>
+  <h5 class="card-header">Pengajuan BPKB</h5>
   <div class="card-body">
     <a href="{{ route('submission.bpkb.create') }}"><button type="button" class="btn btn-success">Tambah</button></a>
     <br>

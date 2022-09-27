@@ -73,7 +73,7 @@
       "url": "laporan",
       "name": "Laporan Penjualan",
       "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "dashboard-analytics"
+      "slug": "laporan"
     }
   ]
 }
