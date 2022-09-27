@@ -48,6 +48,14 @@
                 <label class="form-label" for="basic-default-product-code">Nomor Identitas*</label>
                 <input type="number" class="form-control" id="basic-default-name" placeholder="0123456789" name="id_number" required/>
               </div>
+              <div class="mb-3">
+                <label class="form-label" for="basic-default-product-code">Nomor Telepon*</label>
+                <input type="number" class="form-control" id="basic-default-name" placeholder="0123456789" name="no_hp" required/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="basic-default-product-description">Alamat*</label>
+                <textarea id="basic-default-message" class="form-control" placeholder="" name="address" required></textarea>
+              </div>
           </div>
         </div>
     </div>

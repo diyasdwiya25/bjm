@@ -47,6 +47,14 @@
                 <label class="form-label" for="basic-default-product-code">Nomor Identitas*</label>
                 <input type="number" class="form-control" id="basic-default-name" placeholder="0123456789" name="id_number" value="{{ $booking_guest->id_number }}" required/>
               </div>
+              <div class="mb-3">
+                <label class="form-label" for="basic-default-product-code">Nomor Telepon*</label>
+                <input type="number" class="form-control" id="basic-default-name" placeholder="0123456789" name="no_hp" value="{{ $booking_guest->no_hp }}" required/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="basic-default-product-description">Alamat*</label>
+                <textarea id="basic-default-message" class="form-control" placeholder="" name="address" required>{{ $booking_guest->address }}</textarea>
+              </div>
           </div>
         </div>
     </div>
@@ -120,6 +128,13 @@
               <option value="0" <?php if($booking->booking_status == 0){ echo "selected"; } ?>>Belum Disetujui</option>
               <option value="1" <?php if($booking->booking_status == 1){ echo "selected"; } ?>>Disetujui</option>
               <option value="2" <?php if($booking->booking_status == 2){ echo "selected"; } ?>>Tidak Disetujui</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="basic-default-product-code">Status Pembayaran</label>
+            <select id="status" class="select2 form-select" name="payment_status" required>
+              <option value="0" <?php if($booking->payment_status == 0){ echo "selected"; } ?>>Belum</option>
+              <option value="1" <?php if($booking->payment_status == 1){ echo "selected"; } ?>>Sudah</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary">Kirim</button>

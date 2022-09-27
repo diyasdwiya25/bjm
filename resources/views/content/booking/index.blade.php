@@ -55,8 +55,8 @@
             </td>
             <td>
               <a href="{{ route('booking.edit', $row->id_booking) }}" title="Ubah"><button type="button" class="btn btn-sm btn-primary">Ubah</button></a>
-              <a href="{{ route('booking.delete', $row->id_booking) }}" data-id="{{ $row->id_booking }}" title="Hapus" class="sa-remove"><button type="button" class="btn btn-sm btn-danger">Delete</button></a>
-              <a href="{{ route('booking.approve', $row->id_booking) }}" data-id="{{ $row->id_booking }}" title="Approve" class="sa-approve"><button type="button" class="btn btn-sm btn-success">Setujui</button></a>
+              <a href="{{ route('booking.delete', $row->id_booking) }}" data-id="{{ $row->id_booking }}" title="Hapus" class="sa-remove"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
+              <a href="{{ route('booking.detail', $row->id_booking) }}" title="Approve"><button type="button" class="btn btn-sm btn-success">Detail</button></a>
             </td>
           </tr>
           @empty

@@ -69,23 +69,11 @@
       "icon": "menu-icon tf-icons bx bx-book",
       "slug": "product"
     },
-    
     {
-      "menuHeader": "Misc"
-    },
-    {
-      "url": "https://themeselection.com/support/",
-      "icon": "menu-icon tf-icons bx bx-support",
-      "name": "Support",
-      "slug": "support",
-      "target": "_blank"
-    },
-    {
-      "url": "https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/laravel-introduction.html",
-      "icon": "menu-icon tf-icons bx bx-file",
-      "name": "Documentation",
-      "slug": "documentation",
-      "target": "_blank"
+      "url": "laporan",
+      "name": "Laporan Penjualan",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "dashboard-analytics"
     }
   ]
 }

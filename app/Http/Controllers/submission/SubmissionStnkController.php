@@ -30,7 +30,7 @@ class SubmissionStnkController extends Controller
    {
 		try {
             SubmissionStnk::create([
-               'id_booking' => $request->branch_name,
+               'id_booking' => $request->id_product,
                'no_plat' => $request->no_plat,
                'name' => $request->name,
                'filed_date' => $request->filed_date,
@@ -62,7 +62,7 @@ class SubmissionStnkController extends Controller
 		try {
             $stnk = SubmissionStnk::where('id',$id)->first();
             $stnk->update([
-               'id_booking' => $request->branch_name,
+               'id_booking' => $request->id_product,
                'no_plat' => $request->no_plat,
                'name' => $request->name,
                'filed_date' => $request->filed_date,

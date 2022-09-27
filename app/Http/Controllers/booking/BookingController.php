@@ -12,6 +12,7 @@ use App\Models\BookingGuest;
 use App\Models\BookingType;
 use App\Models\Product;
 use App\Models\Subsidi;
+use App\Models\BookingDocument;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -31,6 +32,36 @@ class BookingController extends Controller
 
       return view('content.booking.index',compact('booking'));
    }
+   public function detail($id)
+   {
+      $booking = Booking::select('booking.id_booking','booking.id_product','booking.price_product',
+      'booking.id_subsidi','booking.subsidi_value', 'booking.booking_type','booking.booking_type','bt.type_name',
+      'cicilan_value','booking.booking_total','booking.booking_status','bg.title','bg.fullname','p.product_name','s.subsidi_type_name',
+      'booking.created_at')
+      ->leftjoin('booking_guest as bg','bg.id_booking','=','booking.id_booking')
+      ->leftjoin('booking_type as bt','bt.id','=','booking.booking_type')
+      ->leftjoin('product as p','p.product_id','=','booking.id_product')
+      ->leftjoin('master_subsidi_type as s','s.id','=','booking.id_subsidi')
+      ->where('booking.id_booking',$id)
+      ->first();
+      return view('content.booking.detail.index',compact('booking'));
+   }
+
+   public function detailPrint($id)
+   {
+      $booking = Booking::select('booking.id_booking','booking.id_product','booking.price_product',
+      'booking.id_subsidi','booking.subsidi_value', 'booking.booking_type','booking.booking_type','bt.type_name',
+      'cicilan_value','booking.booking_total','booking.booking_status','bg.title','bg.fullname','p.product_name','s.subsidi_type_name',
+      'booking.created_at')
+      ->leftjoin('booking_guest as bg','bg.id_booking','=','booking.id_booking')
+      ->leftjoin('booking_type as bt','bt.id','=','booking.booking_type')
+      ->leftjoin('product as p','p.product_id','=','booking.id_product')
+      ->leftjoin('master_subsidi_type as s','s.id','=','booking.id_subsidi')
+      ->where('booking.id_booking',$id)
+      ->first();
+      return view('content.booking.detail.detailPrint',compact('booking'));
+   }
+
    public function create()
    {
       $product = Product::select('product_id','product_name','product_type')->where('status',1)->get();
@@ -43,16 +74,17 @@ class BookingController extends Controller
 		try {
             $booking_count = Booking::count();
             $booking_id = "BOOK-00".$booking_count + 1;
-            
+            $product = Product::select('product_id','product_price')->where('product_id',$request->id_product)->first();
             $booking = Booking::create([
                'id_booking' => $booking_id,
                'id_product' => $request->id_product,
-               'price_product' => $request->price_product ?? 0,
+               'price_product' => $product->product_price ?? 0,
                'id_subsidi' => $request->id_subsidi,
                'subsidi_value' => $request->subsidi_value,
                'booking_type' => $request->booking_type,
                'cicilan_value' => $request->cicilan_value,
                'booking_total' => $request->booking_total,
+               'payment_status' => 0,
                'booking_status' => 0,
                'created_by' => auth()->user()->id
             ]);
@@ -64,6 +96,8 @@ class BookingController extends Controller
                'fullname' => $request->fullname ?? NULL,
                'id_number' => $request->id_number ?? NULL,
                'dateofbirth' => $request->dateofbirth,
+               'address' => $request->address,
+               'no_hp' => $request->no_hp,
                'identity_file' => $image
             ]);
 
@@ -90,14 +124,16 @@ class BookingController extends Controller
 		try {
 
          $booking = Booking::where('id_booking',$id)->first();
+         $product = Product::select('product_id','product_price')->where('product_id',$request->id_product)->first();
          $booking->update([
             'id_product' => $request->id_product,
-            'price_product' => $request->price_product ?? 0,
+            'price_product' => $product->product_price ?? 0,
             'id_subsidi' => $request->id_subsidi,
             'subsidi_value' => $request->subsidi_value,
             'booking_type' => $request->booking_type,
             'cicilan_value' => $request->cicilan_value,
             'booking_total' => $request->booking_total,
+            'payment_status' => $request->payment_status,
             'booking_status' => $request->booking_status
          ]);
          $booking_guest = BookingGuest::where('id_booking',$id)->first();
@@ -113,6 +149,8 @@ class BookingController extends Controller
             'fullname' => $request->fullname,
             'dateofbirth' => $request->dateofbirth,
             'id_number' => $request->id_number,
+            'address' => $request->address,
+            'no_hp' => $request->no_hp,
             'identity_file' => $image
          ]);
 
@@ -140,7 +178,16 @@ class BookingController extends Controller
          'booking_status' => 1
       ]);
       \Session::flash('success.message', 'Data berhasil disetujui');
-      return redirect()->route('booking.index');
+      return redirect()->route('booking.detail', $id);
+	}
+   public function approvePayment($id)
+	{
+		$booking = Booking::where('id_booking',$id)->first();
+      $booking->update([
+         'payment_status' => 1
+      ]);
+      \Session::flash('success.message', 'Data berhasil disetujui');
+      return redirect()->route('booking.detail', $id);
 	}
    private function uploadImageBase64($base64, $slug)
    {
@@ -163,6 +210,88 @@ class BookingController extends Controller
       return $saveFilePath.'.'.$file_type;
    }
 
+   public function document($id)
+   {
+      $booking = Booking::where('id_booking',$id)->first();
+      $booking_guest = BookingGuest::where('id_booking',$id)->first();
+      $booking_document = BookingDocument::where('id_booking',$id)->first();
+      return view('content.booking.detail.travelDocument',compact('booking','booking_guest','booking_document'));
+   }
+   public function documentPrint($id)
+   {
+      $booking = Booking::select('booking.id_booking','booking.id_product','booking.price_product',
+      'booking.id_subsidi','booking.subsidi_value', 'booking.booking_type','booking.booking_type','bt.type_name',
+      'cicilan_value','booking.booking_total','booking.booking_status','bg.title','bg.fullname','p.product_name','s.subsidi_type_name',
+      'booking.created_at')
+      ->leftjoin('booking_guest as bg','bg.id_booking','=','booking.id_booking')
+      ->leftjoin('booking_type as bt','bt.id','=','booking.booking_type')
+      ->leftjoin('product as p','p.product_id','=','booking.id_product')
+      ->leftjoin('master_subsidi_type as s','s.id','=','booking.id_subsidi')
+      ->where('booking.id_booking',$id)
+      ->first();
+      return view('content.booking.detail.travelDocumentPrint',compact('booking'));
+   }
+   public function documentStore(Request $request, $id)
+   {
+		try {
+            $booking_document = BookingDocument::where('id_booking',$id)->first();
+            if(isset($booking_document)){
+               $booking_document->update([
+                  'chassis_number' => $request->chassis_number,
+                  'machine_number' => $request->machine_number,
+                  'no_plat' => $request->no_plat,
+                  'colour' => $request->colour,
+                  'service_book' => $request->service_book ?? 0,
+                  'guide_book' => $request->guide_book ?? 0,
+                  'guidelines_book' => $request->guidelines_book ?? 0,
+                  'tool_kit' => $request->tool_kit ?? 0,
+                  'helmet' => $request->helmet ?? 0,
+                  'jacket' => $request->jacket ?? 0,
+                  'gift' => $request->gift ?? 0,
+               ]);
+            }
+            else {
+               BookingDocument::create([
+                  'id_booking' => $id,
+                  'chassis_number' => $request->chassis_number,
+                  'machine_number' => $request->machine_number,
+                  'no_plat' => $request->no_plat,
+                  'colour' => $request->colour,
+                  'service_book' => $request->service_book ?? 0,
+                  'guide_book' => $request->guide_book ?? 0,
+                  'guidelines_book' => $request->guidelines_book ?? 0,
+                  'tool_kit' => $request->tool_kit ?? 0,
+                  'helmet' => $request->helmet ?? 0,
+                  'jacket' => $request->jacket ?? 0,
+                  'gift' => $request->gift ?? 0,
+               ]);
+            }
+            $booking_count = Booking::count();
+            $booking_id = "BOOK-00".$booking_count + 1;
+            $product = Product::select('product_id','product_price')->where('product_id',$request->id_product)->first();
+            $booking = Booking::create([
+               'id_booking' => $booking_id,
+               'id_product' => $request->id_product,
+               'price_product' => $product->product_price ?? 0,
+               'id_subsidi' => $request->id_subsidi,
+               'subsidi_value' => $request->subsidi_value,
+               'booking_type' => $request->booking_type,
+               'cicilan_value' => $request->cicilan_value,
+               'booking_total' => $request->booking_total,
+               'payment_status' => 0,
+               'booking_status' => 0,
+               'created_by' => auth()->user()->id
+            ]);
+
+            \Session::flash('success.message', 'Data berhasil ditambahkan');
+            return redirect()->route('booking.document', $id);
+
+      } catch(\Exception $e) {
+         \Session::flash('error.message', $e);
+         return redirect()->route('booking.document', $id);
+      }
+   }
+
    private function makeimagedir($path)
     {
         if (!file_exists(public_path() .'/'. $path )) {
@@ -172,4 +301,5 @@ class BookingController extends Controller
         }
         return;
     }
+    
 }

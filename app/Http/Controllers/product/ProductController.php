@@ -63,12 +63,11 @@ class ProductController extends Controller
                'product_price' => $request->product_price,
                'status' => $request->status
             ]);
-
             \Session::flash('success.message', 'Data berhasil diubah');
             return redirect()->route('product.index');
 
       } catch(\Exception $e) {
-         \Session::flash('error.message', 'Data gagal diubah');
+         \Session::flash('error.message', $e->getMessage());
          return redirect()->route('product.index');
       }
    }
