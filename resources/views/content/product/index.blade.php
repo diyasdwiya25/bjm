@@ -23,6 +23,8 @@
             <th>Nama Produk</th>
             <th>Deskripsi Produk</th>
             <th>Tipe Produk</th>
+            <th>Warna</th>
+            <th>Tahun</th>
             <th>Harga Produk</th>
             <th>Status</th>
             <th>Actions</th>
@@ -37,6 +39,8 @@
             <td>{{ $row->product_name }}</td>
             <td>{{ $row->product_description }}</td>
             <td>{{ $row->product_type }}</td>
+            <td>{{ $row->product_colour }}</td>
+            <td>{{ $row->product_year }}</td>
             <td>{{ $row->product_price }}</td>
             <td>
               @if($row->status == 1)

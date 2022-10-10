@@ -55,6 +55,18 @@
       "slug": "subsidi"
     },
     {
+      "url": "parameter",
+      "name": "Parameter",
+      "icon": "menu-icon tf-icons bx bxs-book-content",
+      "slug": "parameter"
+    },
+    {
+      "url": "parameter-detail",
+      "name": "Parameter Detail",
+      "icon": "menu-icon tf-icons bx bxs-book-content",
+      "slug": "parameter-detail"
+    },
+    {
       "menuHeader": "Komponen"
     },
     {

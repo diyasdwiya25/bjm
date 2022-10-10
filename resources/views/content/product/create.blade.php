@@ -32,6 +32,14 @@
             <input type="text" class="form-control" id="basic-default-name" placeholder="Tipe Produk" name="product_type" required/>
           </div>
           <div class="mb-3">
+            <label class="form-label" for="basic-default-product-type">Warna*</label>
+            <input type="text" class="form-control" id="basic-default-name" placeholder="Warna Produk" name="product_colour" required/>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="basic-default-product-type">Tahun*</label>
+            <input type="text" class="form-control" id="basic-default-name" placeholder="" name="year_colour" required/>
+          </div>
+          <div class="mb-3">
             <label class="form-label" for="basic-default-product-price">Harga Produk*</label>
             <input type="text" class="form-control" id="basic-default-name" placeholder="Harga Produk" name="product_price" required/>
           </div>

@@ -32,6 +32,8 @@ class ProductController extends Controller
                'product_description' => $request->product_description,
                'product_type' => $request->product_type,
                'product_price' => $request->product_price,
+               'product_colour' => $request->product_colour,
+               'product_year' => $request->product_year,
                'status' => 1
             ]);
 
@@ -61,6 +63,8 @@ class ProductController extends Controller
                'product_description' => $request->product_description,
                'product_type' => $request->product_type,
                'product_price' => $request->product_price,
+               'product_colour' => $request->product_colour,
+               'product_year' => $request->product_year,
                'status' => $request->status
             ]);
             \Session::flash('success.message', 'Data berhasil diubah');

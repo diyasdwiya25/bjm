@@ -78,6 +78,7 @@ Route::get('/booking/detail/print/{id}', $controller_path . '\booking\BookingCon
 Route::get('/booking/document/{id}', $controller_path . '\booking\BookingController@document')->name('booking.document')->middleware('Role:SUPERADMIN');
 Route::post('/booking/document/store/{id}', $controller_path . '\booking\BookingController@documentStore')->name('booking.document.store')->middleware('Role:SUPERADMIN');
 Route::get('/booking/document/print/{id}', $controller_path . '\booking\BookingController@documentPrint')->name('booking.document.print')->middleware('Role:SUPERADMIN');
+Route::get('/booking/spk/print/{id}', $controller_path . '\booking\BookingController@spkPrint')->name('booking.spkPrint')->middleware('Role:SUPERADMIN');
 // mediator
 Route::get('/mediator', $controller_path . '\mediator\MediatorController@index')->name('mediator.index')->middleware('Role:SUPERADMIN');
 Route::get('/mediator/create', $controller_path . '\mediator\MediatorController@create')->name('mediator.create')->middleware('Role:SUPERADMIN');
@@ -103,3 +104,19 @@ Route::get('/submission/bpkb/delete/{id}', $controller_path . '\submission\Submi
 
 // booking
 Route::get('/laporan', $controller_path . '\laporan\LaporanController@index')->name('laporan.index')->middleware('Role:SUPERADMIN');
+
+// parameter
+Route::get('/parameter', $controller_path . '\parameter\ParameterController@index')->name('parameter.index')->middleware('Role:SUPERADMIN');
+Route::get('/parameter/create', $controller_path . '\parameter\ParameterController@create')->name('parameter.create')->middleware('Role:SUPERADMIN');
+Route::post('/parameter/store', $controller_path . '\parameter\ParameterController@store')->name('parameter.store')->middleware('Role:SUPERADMIN');
+Route::get('/parameter/edit/{id}', $controller_path . '\parameter\ParameterController@edit')->name('parameter.edit')->middleware('Role:SUPERADMIN');
+Route::post('/parameter/update/{id}', $controller_path . '\parameter\ParameterController@update')->name('parameter.update')->middleware('Role:SUPERADMIN');
+Route::get('/parameter/delete/{id}', $controller_path . '\parameter\ParameterController@delete')->name('parameter.delete')->middleware('Role:SUPERADMIN');
+
+// parameter detail
+Route::get('/parameter-detail', $controller_path . '\parameter\ParameterDetailController@index')->name('parameter.detail.index')->middleware('Role:SUPERADMIN');
+Route::get('/parameter-detail/create', $controller_path . '\parameter\ParameterDetailController@create')->name('parameter.detail.create')->middleware('Role:SUPERADMIN');
+Route::post('/parameter-detail/store', $controller_path . '\parameter\ParameterDetailController@store')->name('parameter.detail.store')->middleware('Role:SUPERADMIN');
+Route::get('/parameter-detail/edit/{id}', $controller_path . '\parameter\ParameterDetailController@edit')->name('parameter.detail.edit')->middleware('Role:SUPERADMIN');
+Route::post('/parameter-detail/update/{id}', $controller_path . '\parameter\ParameterDetailController@update')->name('parameter.detail.update')->middleware('Role:SUPERADMIN');
+Route::get('/parameter-detail/delete/{id}', $controller_path . '\parameter\ParameterDetailController@delete')->name('parameter.detail.delete')->middleware('Role:SUPERADMIN');
