@@ -29,7 +29,7 @@
         <?php $no = 1; ?>
         @forelse($cabang as $key => $row)
           <tr>
-            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $no++ }}</strong></td>
+            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $key+ $cabang->firstItem() }}</strong></td>
             <td>{{ $row->branch_name }}</td>
             <td>{{ $row->branch_address }}</td>
             <td>

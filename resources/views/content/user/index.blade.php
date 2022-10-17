@@ -32,7 +32,7 @@
         <?php $no = 1; ?>
         @forelse($user as $key => $row)
           <tr>
-            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $no++ }}</strong></td>
+            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $key+ $user->firstItem() }}</strong></td>
             <td>{{ $row->first_name }}</td>
             <td>{{ $row->last_name }}</td>
             <td>{{ $row->email }}</td>

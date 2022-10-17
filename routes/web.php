@@ -104,7 +104,7 @@ Route::get('/submission/bpkb/delete/{id}', $controller_path . '\submission\Submi
 
 // booking
 Route::get('/laporan', $controller_path . '\laporan\LaporanController@index')->name('laporan.index')->middleware('Role:SUPERADMIN');
-
+Route::get('/news/export',$controller_path . '\laporan\LaporanController@exportExcel')->name('laporan.export')->middleware('Role:SUPERADMIN');
 // parameter
 Route::get('/parameter', $controller_path . '\parameter\ParameterController@index')->name('parameter.index')->middleware('Role:SUPERADMIN');
 Route::get('/parameter/create', $controller_path . '\parameter\ParameterController@create')->name('parameter.create')->middleware('Role:SUPERADMIN');

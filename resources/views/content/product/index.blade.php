@@ -34,7 +34,7 @@
         <?php $no = 1; ?>
         @forelse($product as $key => $row)
           <tr>
-            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $no++ }}</strong></td>
+            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $key+ $product->firstItem() }}</strong></td>
             <td>{{ $row->product_code }}</td>
             <td>{{ $row->product_name }}</td>
             <td>{{ $row->product_description }}</td>

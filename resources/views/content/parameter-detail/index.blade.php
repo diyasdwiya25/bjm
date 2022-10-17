@@ -30,7 +30,7 @@
         <?php $no = 1; ?>
         @forelse($parameterDetail as $key => $row)
           <tr>
-            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $no++ }}</strong></td>
+            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $key+ $parameterDetail->firstItem() }}</strong></td>
             <td>{{ $row->name_param }}</td>
             <td>{{ $row->name }}</td>
             <td>{{ $row->description }}</td>

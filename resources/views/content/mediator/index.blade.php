@@ -29,7 +29,7 @@
         <?php $no = 1; ?>
         @forelse($mediator as $key => $row)
           <tr>
-            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $no++ }}</strong></td>
+            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $key+ $mediator->firstItem() }}</strong></td>
             <td>{{ $row->mediator_name }}</td>
             <td>{{ $row->no_hp }}</td>
             <td>{{ $row->amount_fee }}</td>

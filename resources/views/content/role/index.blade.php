@@ -28,7 +28,7 @@
         <?php $no = 1; ?>
         @forelse($role as $key => $row)
           <tr>
-            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $no++ }}</strong></td>
+            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $key+ $role->firstItem() }}</strong></td>
             <td>{{ $row->role_name }}</td>
             <td>
               @if($row->status == 1)

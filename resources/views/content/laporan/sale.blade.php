@@ -11,6 +11,9 @@
 <div class="card">
   <h5 class="card-header"></h5>
   <div class="card-body">
+  <a href="{{ route('laporan.export') }}"><button type="button" class="btn btn-success">Excel</button></a>
+  <br>
+  <br>
     <div class="table-responsive text-nowrap">
       <table class="table table-bordered">
         <thead>
@@ -31,7 +34,7 @@
         <?php $no = 1; ?>
         @forelse($booking as $key => $row)
           <tr>
-            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $no++ }}</strong></td>
+            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $key+ $booking->firstItem() }}</strong></td>
             <td>{{ date('d-m-Y', strtotime($row->created_at)); }}</td>
             <td>{{ $row->id_booking }}</td>
             <td>{{ $row->fullname }}</td>

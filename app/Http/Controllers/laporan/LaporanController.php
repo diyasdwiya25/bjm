@@ -5,6 +5,7 @@ namespace App\Http\Controllers\laporan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Exports\SaleLaporanExport;
 
 class LaporanController extends Controller
 {
@@ -19,5 +20,10 @@ class LaporanController extends Controller
       ->leftjoin('master_subsidi_type as s','s.id','=','booking.id_subsidi')
       ->paginate(10);
       return view('content.laporan.sale',compact('booking'));
+  }
+
+  public function exportExcel()
+  {
+      return (new SaleLaporanExport())->download('sale-laporan.xlsx');
   }
 }

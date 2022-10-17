@@ -35,7 +35,7 @@
         <?php $no = 1; ?>
         @forelse($booking as $key => $row)
           <tr>
-            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $no++ }}</strong></td>
+            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $key+ $booking->firstItem() }}</strong></td>
             <td>{{ $row->id_booking}}</td>
             <td>{{ $row->fullname }}</td>
             <td>{{ $row->product_name }}</td>
