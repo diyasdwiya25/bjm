@@ -1,0 +1,19 @@
+{
+  "menu": [
+    {
+      "url": "/",
+      "name": "Dashboard",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "menuHeader": "Transaksi"
+    },
+    {
+      "url": "booking",
+      "name": "Pemesanan",
+      "icon": "menu-icon tf-icons bx bx-shopping-bag",
+      "slug": "branch"
+    }
+  ]
+}

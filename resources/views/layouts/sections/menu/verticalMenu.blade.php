@@ -17,7 +17,22 @@
   <div class="menu-inner-shadow"></div>
 
   <ul class="menu-inner py-1">
-    @foreach ($menuData[0]->menu as $menu)
+    <?php
+      if(Auth::user()->user_level == 1){
+        $menuData = $menuData[0];
+      }
+      else if(Auth::user()->user_level == 2){
+        $menuData = $menuData[1];
+      }
+      else if(Auth::user()->user_level == 3){
+        $menuData = $menuData[2];
+      }
+      else if(Auth::user()->user_level == 4){
+        $menuData = $menuData[3];
+      }
+        
+    ?>
+    @foreach ($menuData->menu as $menu)
 
     {{-- adding active and open class if child is active --}}
 

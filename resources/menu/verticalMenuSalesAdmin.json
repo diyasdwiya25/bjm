@@ -1,0 +1,46 @@
+{
+  "menu": [
+    {
+      "url": "/",
+      "name": "Dashboard",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "menuHeader": "Transaksi"
+    },
+    {
+      "url": "booking",
+      "name": "Pemesanan",
+      "icon": "menu-icon tf-icons bx bx-shopping-bag",
+      "slug": "branch"
+    },
+    {
+      "url": "mediator",
+      "name": "Mediator",
+      "icon": "menu-icon tf-icons bx bx-money",
+      "slug": "branch"
+    },
+    {
+      "url": "submission/stnk",
+      "name": "Pengajuan STNK",
+      "icon": "menu-icon tf-icons bx bx-money",
+      "slug": "branch"
+    },
+    {
+      "url": "submission/bpkb",
+      "name": "Pengajuan BPKB",
+      "icon": "menu-icon tf-icons bx bx-money",
+      "slug": "branch"
+    },
+    {
+      "menuHeader": "Komponen"
+    },
+    {
+      "url": "product",
+      "name": "Produk",
+      "icon": "menu-icon tf-icons bx bx-book",
+      "slug": "product"
+    }
+  ]
+}

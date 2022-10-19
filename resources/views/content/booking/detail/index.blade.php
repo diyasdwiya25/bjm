@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Account settings - Account')
+@section('title', 'Detail - Pemesanan')
 
 @section('page-script')
 <script src="{{asset('assets/js/pages-account-settings-account.js')}}"></script>
@@ -15,13 +15,16 @@
   <div class="col-md-12">
     <ul class="nav nav-pills flex-column flex-md-row mb-3">
       <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-user me-1"></i> Detail</a></li>
+      @if(Auth::user()->user_level == 1 or Auth::user()->user_level == 2)
       <li class="nav-item"><a class="nav-link" href="{{route('booking.document', $booking->id_booking)}}"><i class="bx bx-bell me-1"></i> Surat Jalan</a></li>
+      @endif
     </ul>
     <div class="card mb-4">
       <!-- Account -->
       <div class="card-body">
         <div class="d-flex align-items-start align-items-sm-center gap-4">
-          <div class="button-wrapper">
+        @if(Auth::user()->user_level == 1)
+        <div class="col-md-6">
           <a href="{{ route('booking.approve', $booking->id_booking) }}" data-id="{{ $booking->id_booking }}" title="Approve" class="sa-approve">
             <button type="button" class="btn btn-outline-secondary mb-4">
               <i class="bx bx-reset d-block d-sm-none"></i>
@@ -34,23 +37,13 @@
               <span class="d-none d-sm-block">Terima Pembayaran</span>
             </button>
           </a>
-          <a href="{{ route('booking.detail.print', $booking->id_booking) }}" target="_blank">
-            <button type="button" class="btn btn-success account-image-reset mb-4">
-              <i class="bx bx-reset d-block d-sm-none"></i>
-              <span class="d-none d-sm-block">Print</span>
-            </button>
-            </a>
-          <a href="{{ route('booking.spkPrint', $booking->id_booking) }}" target="_blank">
-            <button type="button" class="btn btn-success account-image-reset mb-4">
-              <i class="bx bx-reset d-block d-sm-none"></i>
-              <span class="d-none d-sm-block">Print SPK</span>
-            </button>
-          </a>
-          </div>
+        </div>
+        @endif
+          
        
         </div>
       </div>
-      <hr class="my-0">
+      
       <div class="card-body" id="pageToPrint">
       <div class="container">
         <div class="row">
@@ -65,6 +58,24 @@
                             </div>
                           </div>
                           <br>
+                          @if(Auth::user()->user_level == 1 or Auth::user()->user_level == 2)
+                          <div class="row">
+                            <div class="col-md-12 text-end">
+                              <a href="{{ route('booking.detail.print', $booking->id_booking) }}" target="_blank">
+                                <button type="button" class="btn btn-success account-image-reset mb-4">
+                                  <i class="bx bx-reset d-block d-sm-none"></i>
+                                  <span class="d-none d-sm-block">Cetak Invoice</span>
+                                </button>
+                                </a>
+                              <a href="{{ route('booking.spkPrint', $booking->id_booking) }}" class="" target="_blank">
+                                <button type="button" class="btn btn-success account-image-reset mb-4">
+                                  <i class="bx bx-reset d-block d-sm-none"></i>
+                                  <span class="d-none d-sm-block">Cetak SPK</span>
+                                </button>
+                              </a>
+                            </div>
+                          </div>
+                          @endif
                           <div class="row">
                             <div class="col-xs-12">
                               <h2>invoice<br>
@@ -77,19 +88,19 @@
                           <div class="col-md-6">
                             <address>
                               <strong>Tagihan Dari :</strong><br>
-                              Twitter, Inc.<br>
-                              795 Folsom Ave, Suite 600<br>
-                              San Francisco, CA 94107<br>
-                              <abbr title="Phone">P:</abbr> (123) 456-7890
+                              Bintang Jaya Motor<br>
+                              Jl. Lapabbe No. 8 Sengkang<br>
+                              Teddaopu, Tempe, Sulawesi Selatan<br>
+                              <abbr title="Phone">Telp:</abbr> -
                             </address>
                           </div>
                           <div class="col-md-6 text-end">
                             <address>
                               <strong>Tagihan Untuk:</strong><br>
                               {{ $booking->fullname }}<br>
-                              P. Sherman 42,<br>
-                              Wallaby Way, Sidney<br>
-                              <abbr title="Phone">P:</abbr> (123) 345-6789
+                              {{ $booking->address }}<br>
+                              {{ $booking->ward }}, {{ $booking->districts }}, {{ $booking->city }}<br>
+                              <abbr title="Phone">Telp:</abbr> {{ $booking->no_hp }}
                             </address>
                           </div>
                         </div>

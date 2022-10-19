@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Account settings - Account')
+@section('title', 'Detail - Surat Jalan')
 
 @section('page-script')
 <script src="{{asset('assets/js/pages-account-settings-account.js')}}"></script>
@@ -25,7 +25,7 @@
           <a href="{{ route('booking.document.print', $booking->id_booking) }}" target="_blank">
             <button type="button" class="btn btn-success account-image-reset mb-4">
               <i class="bx bx-reset d-block d-sm-none"></i>
-              <span class="d-none d-sm-block">Print</span>
+              <span class="d-none d-sm-block">Cetak</span>
             </button>
             </a>
           </div>
@@ -46,8 +46,8 @@
                 <input type="text" class="form-control" id="basic-default-name" name="machine_number" value="{{ $booking_document->machine_number ?? '' }}"/>
             </div>
             <div class="col-sm-6">
-                <label class="form-label" for="basic-default-product-code">Warna</label>
-                <input type="text" class="form-control" id="basic-default-name" name="colour" value="{{ $booking_document->colour ?? '' }}"/>
+                <label class="form-label" for="basic-default-product-code">Kode Buku</label>
+                <input type="text" class="form-control" id="basic-default-name" name="book_code" value="{{ $booking_document->book_code ?? '' }}"/>
             </div>
             <div class="col-sm-6">
                 <label class="form-label" for="basic-default-product-code">No Polisi</label>

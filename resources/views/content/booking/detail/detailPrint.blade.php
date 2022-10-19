@@ -58,19 +58,21 @@ $container = ($container ?? 'container-xxl');
                                         <hr>
                                         <table class="table">
                                                 <tr>
-                                                <td><address>
+                                                <td>
+                                                <address>
                                                 <strong>Tagihan Dari :</strong><br>
-                                                Twitter, Inc.<br>
-                                                795 Folsom Ave, Suite 600<br>
-                                                San Francisco, CA 94107<br>
-                                                <abbr title="Phone">P:</abbr> (123) 456-7890
+                                                Bintang Jaya Motor<br>
+                                                Jl. Lapabbe No. 8 Sengkang<br>
+                                                Teddaopu, Tempe, Sulawesi Selatan<br>
+                                                <abbr title="Phone">Telp:</abbr> -
                                                 </address></td>
-                                                <td class="text-end"><address>
+                                                <td class="text-end">
+                                                <address>
                                                 <strong>Tagihan Untuk:</strong><br>
                                                 {{ $booking->fullname }}<br>
-                                                P. Sherman 42,<br>
-                                                Wallaby Way, Sidney<br>
-                                                <abbr title="Phone">P:</abbr> (123) 345-6789
+                                                {{ $booking->address }}<br>
+                                                {{ $booking->ward }}, {{ $booking->districts }}, {{ $booking->city }}<br>
+                                                <abbr title="Phone">Telp:</abbr> {{ $booking->no_hp }}
                                                 </address></td>
                                                 </tr>
                                         </table>
