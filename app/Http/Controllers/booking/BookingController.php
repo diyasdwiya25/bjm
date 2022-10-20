@@ -15,6 +15,7 @@ use App\Models\Subsidi;
 use App\Models\BookingDocument;
 use App\Models\ParameterDetail;
 use App\Models\BookingDocumentFinance;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -23,15 +24,33 @@ class BookingController extends Controller
 {
    public function index()
    {
-      $booking = Booking::select('booking.id_booking','booking.id_product','booking.price_product',
-      'booking.id_subsidi','booking.subsidi_value','booking.booking_type','bt.name as type_name',
-      'cicilan_value','booking.booking_total','booking.booking_status','bg.fullname','p.product_name','s.subsidi_type_name')
-      ->leftjoin('booking_guest as bg','bg.id_booking','=','booking.id_booking')
-      ->leftjoin('parameter_detail as bt','bt.id','=','booking.booking_type')
-      ->leftjoin('product as p','p.product_id','=','booking.id_product')
-      ->leftjoin('master_subsidi_type as s','s.id','=','booking.id_subsidi')
-      ->orderBy('booking.id_booking','desc')
-      ->paginate(10);
+      $user = User::select('user.id','user.user_branch')->where('user.id',auth()->user()->id)->first();
+      if(Auth::user()->user_level == 1){
+         $booking = Booking::select('booking.id_booking','booking.id_product','booking.price_product',
+         'booking.id_subsidi','booking.subsidi_value','booking.booking_type','bt.name as type_name',
+         'cicilan_value','booking.booking_total','booking.booking_status','bg.fullname','p.product_name','s.subsidi_type_name','mb.branch_name')
+         ->leftjoin('booking_guest as bg','bg.id_booking','=','booking.id_booking')
+         ->leftjoin('parameter_detail as bt','bt.id','=','booking.booking_type')
+         ->leftjoin('product as p','p.product_id','=','booking.id_product')
+         ->leftjoin('master_subsidi_type as s','s.id','=','booking.id_subsidi')
+         ->leftjoin('master_branch as mb','mb.id','=','booking.branch')
+         ->orderBy('booking.id_booking','desc')
+         ->paginate(10);
+       }
+       else {
+         $booking = Booking::select('booking.id_booking','booking.id_product','booking.price_product',
+         'booking.id_subsidi','booking.subsidi_value','booking.booking_type','bt.name as type_name',
+         'cicilan_value','booking.booking_total','booking.booking_status','bg.fullname','p.product_name','s.subsidi_type_name','mb.branch_name')
+         ->leftjoin('booking_guest as bg','bg.id_booking','=','booking.id_booking')
+         ->leftjoin('parameter_detail as bt','bt.id','=','booking.booking_type')
+         ->leftjoin('product as p','p.product_id','=','booking.id_product')
+         ->leftjoin('master_subsidi_type as s','s.id','=','booking.id_subsidi')
+         ->leftjoin('master_branch as mb','mb.id','=','booking.branch')
+         ->orderBy('booking.id_booking','desc')
+         ->where('booking.branch', $user->user_branch)
+         ->paginate(10);
+       }
+      
 
       return view('content.booking.index',compact('booking'));
    }
@@ -84,6 +103,7 @@ class BookingController extends Controller
             $booking_count = Booking::count();
             $booking_id = "BOOK-".sprintf("%03d", $booking_count + 1);
             $product = Product::select('product_id','product_price')->where('product_id',$request->id_product)->first();
+            $user = User::select('user.id','user.user_branch')->where('user.id',auth()->user()->id)->first();
             $booking = Booking::create([
                'id_booking' => $booking_id,
                'id_product' => $request->id_product,
@@ -100,6 +120,7 @@ class BookingController extends Controller
                'payment_status' => 0,
                'booking_status' => 0,
                'notes' => $request->notes,
+               'branch' => $user->user_branch,
                'created_by' => auth()->user()->id
             ]);
 

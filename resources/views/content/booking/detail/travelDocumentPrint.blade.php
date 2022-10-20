@@ -20,7 +20,7 @@
       <tr>
           <td colspan="2">
             <div>
-              <span style="font-size: x-small;">BJM</span>
+            <img src="{{ asset('assets/img/icon/logo.png') }}" style="width: 200px;">
             </div>
           </td>
           <td >

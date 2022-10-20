@@ -27,6 +27,7 @@
             <th>Jumlah Cicilan</th>
             <th>Tipe Subsidi</th>
             <th>Jumlah Subsidi</th>
+            <th>Cabang</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
@@ -44,6 +45,7 @@
             <td>{{ $row->cicilan_value ?? '-' }}</td>
             <td>{{ $row->subsidi_type_name }}</td>
             <td>{{ $row->subsidi_value }}</td>
+            <td>{{ $row->branch_name }}</td>
             <td>
               @if($row->booking_status == 1)
               <span class="badge bg-label-success me-1">Disetujui</span>

@@ -23,6 +23,7 @@
             <th>No Order</th>
             <th>Pembeli</th>
             <th>Produk</th>
+            <th>Cabang</th>
             <th>Sub Total</th>
             <th>Diskon/Subsidi</th>
             <th>Total Penjualan</th>
@@ -39,6 +40,7 @@
             <td>{{ $row->id_booking }}</td>
             <td>{{ $row->fullname }}</td>
             <td>{{ $row->product_name }}</td>
+            <td>{{ $row->branch_name }}</td>
             <td>@currency($row->price_product)</td>
             <td>@currency($row->subsidi_value)</td>
             <td>@currency($row->price_product - $row->subsidi_value)</td>
