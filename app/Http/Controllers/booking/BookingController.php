@@ -324,9 +324,10 @@ class BookingController extends Controller
    public function spkPrint($id)
    {
       // $cabang = Cabang::select('id','branch_name','branch_address')->where('status',2)->get();
-      $product = Product::select('product_id','product_name','product_type')->where('status',1)->get();
+      
       $subsidi = Subsidi::select('id','subsidi_type_name')->where('status',1)->get();
       $booking = Booking::where('id_booking',$id)->first();
+      $product = Product::select('product_id','product_name','product_type','product_colour','product_year')->where('product_id',$booking->id_product)->first();
       $booking_guest = BookingGuest::where('id_booking',$id)->first();
       $booking_type = ParameterDetail::select('id','name')->where('status',1)->where('param_id',2)->get();
       $instansi = ParameterDetail::select('id','name')->where('status',1)->where('param_id',1)->get();
