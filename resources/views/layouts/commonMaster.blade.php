@@ -32,5 +32,5 @@
   @include('layouts/sections/scripts')
 
 </body>
-
+@yield('layoutFooter')
 </html>

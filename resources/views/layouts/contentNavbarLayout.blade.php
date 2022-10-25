@@ -24,7 +24,7 @@ $container = ($container ?? 'container-xxl');
   <div class="layout-container">
 
     @if ($isMenu)
-    @include('layouts/sections/menu/verticalMenu')
+      @include('layouts/sections/menu/verticalMenu')
     @endif
 
 
@@ -78,4 +78,10 @@ $container = ($container ?? 'container-xxl');
     <div class="drag-target"></div>
   </div>
   <!-- / Layout wrapper -->
+  @endsection
+
+  @section('layoutFooter')
+
+  @yield('footer')
+
   @endsection

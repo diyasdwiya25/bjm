@@ -7,6 +7,33 @@
       "slug": "dashboard-analytics"
     },
     {
+      "menuHeader": "Transaksi"
+    },
+    {
+      "url": "booking",
+      "name": "Pemesanan",
+      "icon": "menu-icon tf-icons bx bx-shopping-bag",
+      "slug": "branch"
+    },
+    {
+      "url": "mediator",
+      "name": "Mediator",
+      "icon": "menu-icon tf-icons bx bx-money",
+      "slug": "branch"
+    },
+    {
+      "url": "submission/stnk",
+      "name": "Pengajuan STNK",
+      "icon": "menu-icon tf-icons bx bx-money",
+      "slug": "branch"
+    },
+    {
+      "url": "submission/bpkb",
+      "name": "Pengajuan BPKB",
+      "icon": "menu-icon tf-icons bx bx-money",
+      "slug": "branch"
+    },
+    {
       "menuHeader": "Master"
     },
     {
@@ -28,51 +55,37 @@
       "slug": "subsidi"
     },
     {
+      "url": "parameter",
+      "name": "Parameter",
+      "icon": "menu-icon tf-icons bx bxs-book-content",
+      "slug": "parameter"
+    },
+    {
+      "url": "parameter-detail",
+      "name": "Parameter Detail",
+      "icon": "menu-icon tf-icons bx bxs-book-content",
+      "slug": "parameter-detail"
+    },
+    {
       "menuHeader": "Komponen"
     },
     {
-      "url": "#",
+      "url": "user",
       "name": "Pengguna",
       "icon": "menu-icon tf-icons bx bxs-user-detail",
-      "slug": "branch"
+      "slug": "user"
     },
     {
-      "url": "#",
+      "url": "product",
       "name": "Produk",
       "icon": "menu-icon tf-icons bx bx-book",
-      "slug": "branch"
+      "slug": "product"
     },
     {
-      "menuHeader": "Transaksi"
-    },
-    {
-      "url": "#",
-      "name": "Pemesanan",
-      "icon": "menu-icon tf-icons bx bx-shopping-bag",
-      "slug": "branch"
-    },
-    {
-      "url": "#",
-      "name": "Mediator",
-      "icon": "menu-icon tf-icons bx bx-money",
-      "slug": "branch"
-    },
-    {
-      "menuHeader": "Misc"
-    },
-    {
-      "url": "https://themeselection.com/support/",
-      "icon": "menu-icon tf-icons bx bx-support",
-      "name": "Support",
-      "slug": "support",
-      "target": "_blank"
-    },
-    {
-      "url": "https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/laravel-introduction.html",
-      "icon": "menu-icon tf-icons bx bx-file",
-      "name": "Documentation",
-      "slug": "documentation",
-      "target": "_blank"
+      "url": "laporan",
+      "name": "Laporan Penjualan",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "laporan"
     }
   ]
 }
