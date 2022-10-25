@@ -11,6 +11,7 @@
         <th>Sub Total</th>
         <th>Diskon/Subsidi</th>
         <th>Total Penjualan</th>
+        <th>Mediator</th>
         <th>Pembayaran</th>
         <th>Saldo</th>
     </tr>
@@ -32,14 +33,15 @@
             <td>@currency($row->price_product)</td>
             <td>@currency($row->subsidi_value)</td>
             <td>@currency($row->price_product - $row->subsidi_value)</td>
+            <td>@currency($row->amount_fee)</td>
             <td>
                 <?php if($row->payment_status == 1) { ?>
-                    @currency($row->booking_total)
+                    @currency($row->booking_total - $row->amount_fee)
                 <?php } ?>
             </td>
             <td>
                 <?php if($row->payment_status == 0) { ?>
-                    @currency($row->booking_total)
+                    @currency($row->booking_total - $row->amount_fee)
                 <?php } ?>
             </td>
         </tr>

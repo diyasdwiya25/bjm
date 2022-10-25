@@ -19,6 +19,7 @@
         <thead>
           <tr>
             <th>#</th>
+            <th>Nomor Pemesanan</th>
             <th>Nama Mediator</th>
             <th>No Hp</th>
             <th>Jumlah Biaya</th>
@@ -30,6 +31,7 @@
         @forelse($mediator as $key => $row)
           <tr>
             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $key+ $mediator->firstItem() }}</strong></td>
+            <td>{{ $row->id_booking }}</td>
             <td>{{ $row->mediator_name }}</td>
             <td>{{ $row->no_hp }}</td>
             <td>{{ $row->amount_fee }}</td>
@@ -40,7 +42,7 @@
           </tr>
           @empty
             <tr>
-              <td colspan="5" align="center">
+              <td colspan="6" align="center">
                 <p>Tidak ada data</p>
               </td>
             </tr>

@@ -27,14 +27,14 @@
         <div class="col-md-6">
           <a href="{{ route('booking.approve', $booking->id_booking) }}" data-id="{{ $booking->id_booking }}" title="Approve" class="sa-approve">
             <button type="button" class="btn btn-outline-secondary mb-4">
-              <i class="bx bx-reset d-block d-sm-none"></i>
-              <span class="d-none d-sm-block">Setujui</span>
+              <!-- <i class="bx bx-reset d-block d-sm-none"></i> -->
+              <span class="d-sm-block">Setujui</span>
             </button>
           </a>
           <a href="{{ route('booking.approve.payment', $booking->id_booking) }}" data-id="{{ $booking->id_booking }}" title="Approve" class="sa-approve">
             <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-              <i class="bx bx-reset d-block d-sm-none"></i>
-              <span class="d-none d-sm-block">Terima Pembayaran</span>
+              <!-- <i class="bx bx-reset d-block d-sm-none"></i> -->
+              <span class="d-sm-block">Terima Pembayaran</span>
             </button>
           </a>
         </div>
@@ -63,14 +63,14 @@
                             <div class="col-md-12 text-end">
                               <a href="{{ route('booking.detail.print', $booking->id_booking) }}" target="_blank">
                                 <button type="button" class="btn btn-success account-image-reset mb-4">
-                                  <i class="bx bx-reset d-block d-sm-none"></i>
-                                  <span class="d-none d-sm-block">Cetak Invoice</span>
+                                  <!-- <i class="bx bx-reset d-block d-sm-none"></i> -->
+                                  <span class="d-sm-block">Cetak Invoice</span>
                                 </button>
                                 </a>
                               <a href="{{ route('booking.spkPrint', $booking->id_booking) }}" class="" target="_blank">
                                 <button type="button" class="btn btn-success account-image-reset mb-4">
-                                  <i class="bx bx-reset d-block d-sm-none"></i>
-                                  <span class="d-none d-sm-block">Cetak SPK</span>
+                                  <!-- <i class="bx bx-reset d-block d-sm-none"></i> -->
+                                  <span class="d-sm-block">Cetak SPK</span>
                                 </button>
                               </a>
                             </div>

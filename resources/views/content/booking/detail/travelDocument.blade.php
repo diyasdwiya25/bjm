@@ -24,8 +24,8 @@
           <div class="button-wrapper">
           <a href="{{ route('booking.document.print', $booking->id_booking) }}" target="_blank">
             <button type="button" class="btn btn-success account-image-reset mb-4">
-              <i class="bx bx-reset d-block d-sm-none"></i>
-              <span class="d-none d-sm-block">Cetak</span>
+              <!-- <i class="bx bx-reset d-block d-sm-none"></i> -->
+              <span class="d-sm-block">Cetak</span>
             </button>
             </a>
           </div>

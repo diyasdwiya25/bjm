@@ -11,7 +11,7 @@ class MediatorController extends Controller
 {
    public function index()
    {
-      $mediator = Mediator::select('id','mediator_name','no_hp','amount_fee')
+      $mediator = Mediator::select('id','id_booking','mediator_name','no_hp','amount_fee')
       ->paginate(10);
       return view('content.mediator.index',compact('mediator'));
    }

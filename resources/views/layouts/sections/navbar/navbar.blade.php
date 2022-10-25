@@ -63,7 +63,13 @@ $navbarDetached = ($navbarDetached ?? '');
                     </div>
                     <div class="flex-grow-1">
                       <span class="fw-semibold d-block">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span>
-                      <small class="text-muted">Role</small>
+                      <small class="text-muted">
+                        <?php
+                          use App\Models\Role;
+                          $role = Role::where('id',auth()->user()->user_level)->first();
+                        ?>
+                        {{ $role->role_name }}
+                      </small>
                     </div>
                   </div>
                 </a>

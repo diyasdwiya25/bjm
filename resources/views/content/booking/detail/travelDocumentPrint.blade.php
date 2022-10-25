@@ -15,7 +15,7 @@
   </head>
   <body>
   <?php $dateNow = Carbon\Carbon::now(); ?>
-    <table align="center" border="0" cellpadding="1" style="width: 700px;">
+    <table align="center" border="0">
       <tbody>
       <tr>
           <td colspan="2">

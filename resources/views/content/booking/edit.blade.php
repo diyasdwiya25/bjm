@@ -221,6 +221,26 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label class="form-label" for="basic-default-branch">Mediator(Rp)</label>
+                <input type="number" class="form-control" id="basic-default-name" placeholder="" name="amount_fee"  value="{{ $mediator->amount_fee ?? '' }}"/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label class="form-label" for="basic-default-product-code">Nama Mediator</label>
+                <input type="text" class="form-control" id="basic-default-name" placeholder="" name="mediator_name" value="{{ $mediator->mediator_name ?? '' }}"/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label class="form-label" for="basic-default-product-code">No Hp/Telp Mediator</label>
+                <input type="number" class="form-control" id="basic-default-name" placeholder="" name="no_hp_mediator" value="{{ $mediator->no_hp ?? '' }}"/>
+              </div>
+            </div>
+          </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-product-code">Jumlah Tanda Jadi</label>
             <input type="number" class="form-control" id="basic-default-name" placeholder="" name="booking_total" value="{{ $booking->booking_total }}"/>
@@ -401,7 +421,7 @@
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3"> 
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="npwp" <?php if($booking_document_finance->npwp == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="npwp_doc" <?php if($booking_document_finance->npwp == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">NPWP</label>
                   </div>
                 </div>

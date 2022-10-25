@@ -16,6 +16,7 @@ use App\Models\BookingDocument;
 use App\Models\ParameterDetail;
 use App\Models\BookingDocumentFinance;
 use App\Models\User;
+use App\Models\Mediator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -151,6 +152,13 @@ class BookingController extends Controller
                'month_long_stay' => $request->month_long_stay,
                'dependents' => $request->dependents,
             ]);
+            $mediator = Mediator::create([
+               'id_booking' => $booking->id_booking,
+               'mediator_name' => $request->mediator_name,
+               'no_hp' => $request->no_hp_mediator,
+               'amount_fee' => $request->amount_fee,
+               'status' => 1
+            ]);
             $booking_document_finance = BookingDocumentFinance::create([
                                     'id_booking' => $booking->id_booking,
                                     'owner_ktp' => $request->owner_ktp ?? 0,
@@ -161,7 +169,7 @@ class BookingController extends Controller
                                     'checking_account' => $request->checking_account ?? 0,
                                     'salary_slip' => $request->salary_slip ?? 0,
                                     'sku' => $request->sku ?? 0,
-                                    'npwp' => $request->npwp ?? 0,
+                                    'npwp' => $request->npwp_doc ?? 0,
                                     'other' => $request->other ?? 0,
                                     'marriage_certificate' => $request->marriage_certificate ?? 0,
                                     'wife_ktp' => $request->wife_ktp ?? 0,
@@ -188,7 +196,8 @@ class BookingController extends Controller
       $marriage_status = ParameterDetail::select('id','name')->where('status',1)->where('param_id',4)->get();
       $home_status = ParameterDetail::select('id','name')->where('status',1)->where('param_id',5)->get();
       $booking_document_finance = BookingDocumentFinance::where('id_booking',$id)->first();
-      return view('content.booking.edit',compact('product','subsidi','booking','booking_guest','booking_type','instansi','finco','marriage_status','home_status','booking_document_finance'));
+      $mediator = Mediator::where('id_booking',$id)->first();
+      return view('content.booking.edit',compact('product','subsidi','booking','booking_guest','booking_type','instansi','finco','marriage_status','home_status','booking_document_finance','mediator'));
    }
 
    public function update(Request $request, $id)
@@ -247,7 +256,24 @@ class BookingController extends Controller
             'month_long_stay' => $request->month_long_stay,
             'dependents' => $request->dependents,
          ]);
-
+         $mediator = Mediator::where('id_booking',$id)->first();
+         if(isset($mediator)){
+            $mediator->update([
+               'mediator_name' => $request->mediator_name,
+               'no_hp' => $request->no_hp_mediator,
+               'amount_fee' => $request->amount_fee
+            ]);
+         }
+         else{
+            $mediator = Mediator::create([
+               'id_booking' => $booking->id_booking,
+               'mediator_name' => $request->mediator_name,
+               'no_hp' => $request->no_hp_mediator,
+               'amount_fee' => $request->amount_fee,
+               'status' => 1
+            ]);
+         }
+         
          $booking_document_finance = BookingDocumentFinance::where('id_booking',$id)->first();
          $booking_document_finance->update([
             'owner_ktp' => $request->owner_ktp ?? 0,
@@ -258,7 +284,7 @@ class BookingController extends Controller
             'checking_account' => $request->checking_account ?? 0,
             'salary_slip' => $request->salary_slip ?? 0,
             'sku' => $request->sku ?? 0,
-            'npwp' => $request->npwp ?? 0,
+            'npwp' => $request->npwp_doc ?? 0,
             'other' => $request->other ?? 0,
             'marriage_certificate' => $request->marriage_certificate ?? 0,
             'wife_ktp' => $request->wife_ktp ?? 0,

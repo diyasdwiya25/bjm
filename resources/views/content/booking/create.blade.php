@@ -180,7 +180,7 @@
           </div>
           <div class="row">
             <div class="col-md-2">
-            <label class="form-label" for="basic-default-product-code">Harga</label>
+              <label class="form-label" for="basic-default-product-code">Harga</label>
               <div class="col-md">
                 <div class="form-check form-check-inline mt-3">
                   <input class="form-check-input" type="radio" id="inlineCheckbox1" name="type_price_product" value="otr">
@@ -219,6 +219,26 @@
               <div class="mb-3">
                 <label class="form-label" for="basic-default-product-code">Nominal Subsidi</label>
                 <input type="number" class="form-control" id="basic-default-name" placeholder="" name="subsidi_value" value="0"/>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label class="form-label" for="basic-default-branch">Mediator(Rp)</label>
+                <input type="number" class="form-control" id="basic-default-name" placeholder="" name="amount_fee" value="0"/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label class="form-label" for="basic-default-product-code">Nama Mediator</label>
+                <input type="text" class="form-control" id="basic-default-name" placeholder="" name="mediator_name"/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label class="form-label" for="basic-default-product-code">No Hp/Telp Mediator</label>
+                <input type="number" class="form-control" id="basic-default-name" placeholder="" name="no_hp_mediator"/>
               </div>
             </div>
           </div>
@@ -387,7 +407,7 @@
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="npwp" value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="npwp_doc" value="1">
                     <label class="form-check-label" for="inlineCheckbox1">NPWP</label>
                   </div>
                 </div>
