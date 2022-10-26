@@ -161,16 +161,13 @@
                     <tbody>
                         <tr>
                             <td style="width: 11%;">Type Motor</td>
-                            @foreach($product as $row)
-                            <?php if($booking->product_id == $row->product_id) { $type = $row->product_name; } ?>
-                            @endforeach
-                            <td><input type="text" value="{{ $booking->product_id }}">
+                            <td><input type="text" value="{{ $product->product_name }}">
                             
                             </td>
                             <td style="width: 11%;">Warna</td>
-                            <td ><input type="text"></td>
+                            <td ><input type="text" value="{{ $product->product_colour }}"></td>
                             <td style="width: 11%;">Tahun</td>
-                            <td ><input type="text"></td>
+                            <td ><input type="text" value="{{ $product->product_year }}"></td>
                         </tr>
                         <tr>
                             <td style="width: 11%;">Harga</td>
@@ -192,10 +189,10 @@
                             <td colspan="3" style="width: 100%;"><input type="text" value="{{ $booking->booking_total }}"></td>
                         </tr>
                         <tr>
-                            <td style="width: 13%;">Pemabayaran</td>
+                            <td style="width: 13%;">Pembayaran</td>
                             <td colspan="5">
                                 @foreach($booking_type as $row)
-                                <div class="checkbox <?php if($booking_guest->booking_type == $row->id) { echo "checked"; } ?>" ></div>  {{ $row->name }}
+                                <div class="checkbox <?php if($booking->booking_type == $row->id) { echo "checked"; } ?>" ></div>  {{ $row->name }}
                                 @endforeach
                             </td>
                         </tr>
@@ -340,7 +337,7 @@
           <td></td>
         </tr>
         
-        <tr>
+        <!-- <tr>
           <td style="padding-right: 138px;">
             <div align="center" style="height: 110px">
               <span>Hormat Kami</span>
@@ -383,11 +380,11 @@
               </span>
             </div>
           </td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
   </body>
 </html>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   window.print();
-</script> -->
+</script>
