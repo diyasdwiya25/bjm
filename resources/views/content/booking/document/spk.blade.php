@@ -121,11 +121,7 @@
                         </tr>
                         <tr>
                             <td style="width: 11%;">Kode Pos</td>
-<<<<<<< HEAD
                             <td><input type="text" value="{{ $booking_guest->postal_code }}"></td>
-=======
-                            <td style="width: 30%;"><input type="text" value="{{ $booking_guest->postal_code }}"></td>
->>>>>>> b1fd8fcc446673e9fa4e085944b0c038625e51bd
                             <td style="width: 11%;">Telepon</td>
                             <td><input type="text" value="{{ $booking_guest->no_telp }}"></td>
                             <td style="width: 11%;">HP</td>
@@ -165,7 +161,6 @@
                     <tbody>
                         <tr>
                             <td style="width: 11%;">Type Motor</td>
-<<<<<<< HEAD
                             @foreach($product as $row)
                             <?php if($booking->product_id == $row->product_id) { $type = $row->product_name; } ?>
                             @endforeach
@@ -176,15 +171,6 @@
                             <td ><input type="text"></td>
                             <td style="width: 11%;">Tahun</td>
                             <td ><input type="text"></td>
-=======
-                            <td><input type="text" value="{{ $product->product_name }}">
-                            
-                            </td>
-                            <td style="width: 11%;">Warna</td>
-                            <td ><input type="text" value="{{ $product->product_colour }}"></td>
-                            <td style="width: 11%;">Tahun</td>
-                            <td ><input type="text" value="{{ $product->product_year }}"></td>
->>>>>>> b1fd8fcc446673e9fa4e085944b0c038625e51bd
                         </tr>
                         <tr>
                             <td style="width: 11%;">Harga</td>
