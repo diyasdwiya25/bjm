@@ -340,11 +340,7 @@
           <td></td>
         </tr>
         
-<<<<<<< HEAD
         <tr>
-=======
-        <!-- <tr>
->>>>>>> b1fd8fcc446673e9fa4e085944b0c038625e51bd
           <td style="padding-right: 138px;">
             <div align="center" style="height: 110px">
               <span>Hormat Kami</span>
@@ -387,21 +383,11 @@
               </span>
             </div>
           </td>
-<<<<<<< HEAD
         </tr>
-=======
-        </tr> -->
->>>>>>> b1fd8fcc446673e9fa4e085944b0c038625e51bd
       </tbody>
     </table>
   </body>
 </html>
-<<<<<<< HEAD
 <!-- <script type="text/javascript">
   window.print();
 </script> -->
-=======
-<script type="text/javascript">
-  window.print();
-</script>
->>>>>>> b1fd8fcc446673e9fa4e085944b0c038625e51bd
