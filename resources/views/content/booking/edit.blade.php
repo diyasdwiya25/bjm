@@ -368,7 +368,7 @@
               <div class="col-md">
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="owner_ktp" <?php if($booking_document_finance->owner_ktp == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="owner_ktp" <?php if(isset($booking_document_finance->owner_ktp) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">KTP Pemilik</label>
                   </div>
                 </div>
