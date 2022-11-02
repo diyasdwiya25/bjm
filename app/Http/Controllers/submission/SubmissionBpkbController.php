@@ -55,7 +55,7 @@ class SubmissionBpkbController extends Controller
       ->leftjoin('product as p','p.product_id','=','booking.id_product')
       ->where('booking.booking_status',1)
       ->get();
-      $bpkb = SubmissionBpkb::select('submission_stnk.id','id_booking','no_plat','name','filed_date','finish_date','handed_over_date','handed_over_leasing_date','handed_over_by','received_by')->where('id',$id)->first();
+      $bpkb = SubmissionBpkb::select('submission_bpkb.id','id_booking','no_plat','name','filed_date','finish_date','handed_over_date','handed_over_leasing_date','handed_over_by','received_by')->where('id',$id)->first();
       return view('content.submission.bpkb.edit',compact('bpkb','booking'));
    }
    public function update(Request $request, $id)
