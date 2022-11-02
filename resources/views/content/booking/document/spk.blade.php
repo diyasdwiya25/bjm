@@ -279,51 +279,51 @@
                     <tbody>
                         <tr>
                             <td>
-                                <div class="checkbox <?php if($booking_document_finance->owner_ktp == 1) { echo "checked"; } ?>" ></div>  KTP Pemilik
+                                <div class="checkbox <?php if(isset($booking_document_finance->owner_ktp) == 1) { echo "checked"; } ?>" ></div>  KTP Pemilik
                             </td>
                             <td>
-                                <div class="checkbox <?php if($booking_document_finance->checking_account == 1) { echo "checked"; } ?>" ></div>  Rekening Koran/Tabungan
+                                <div class="checkbox <?php if(isset($booking_document_finance->checking_account) == 1) { echo "checked"; } ?>" ></div>  Rekening Koran/Tabungan
                             </td>
                             <td>
-                                <div class="checkbox <?php if($booking_document_finance->marriage_certificate == 1) { echo "checked"; } ?>" ></div>  Surat Nikah
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="checkbox <?php if($booking_document_finance->applicants_ktp == 1) { echo "checked"; } ?>" ></div>  KTP Pemohon
-                            </td>
-                            <td>
-                                <div class="checkbox <?php if($booking_document_finance->salary_slip == 1) { echo "checked"; } ?>" ></div>  Slip Gaji/SKP
-                            </td>
-                            <td>
-                                <div class="checkbox <?php if($booking_document_finance->wife_ktp == 1) { echo "checked"; } ?>" ></div>  KTP Istri
+                                <div class="checkbox <?php if(isset($booking_document_finance->marriage_certificate) == 1) { echo "checked"; } ?>" ></div>  Surat Nikah
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="checkbox <?php if($booking_document_finance->guarantor_ktp == 1) { echo "checked"; } ?>" ></div>  KTP Penjamin
+                                <div class="checkbox <?php if(isset($booking_document_finance->applicants_ktp) == 1) { echo "checked"; } ?>" ></div>  KTP Pemohon
                             </td>
                             <td>
-                                <div class="checkbox <?php if($booking_document_finance->sku == 1) { echo "checked"; } ?>" ></div>  SKU/SIUP
+                                <div class="checkbox <?php if(isset($booking_document_finance->salary_slip) == 1) { echo "checked"; } ?>" ></div>  Slip Gaji/SKP
                             </td>
                             <td>
-                                <div class="checkbox <?php if($booking_document_finance->family_card == 1) { echo "checked"; } ?>" ></div>  Kartu Keluarga
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="checkbox <?php if($booking_document_finance->electricity_bills == 1) { echo "checked"; } ?>" ></div>  Rekening Listrik/PBB
-                            </td>
-                            <td>
-                                <div class="checkbox <?php if($booking_document_finance->npwp == 1) { echo "checked"; } ?>" ></div>  NPWP
+                                <div class="checkbox <?php if(isset($booking_document_finance->wife_ktp) == 1) { echo "checked"; } ?>" ></div>  KTP Istri
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="checkbox <?php if($booking_document_finance->engine_friction == 1) { echo "checked"; } ?>" ></div>  Gesekan Nomor Rangka dan Mesin
+                                <div class="checkbox <?php if(isset($booking_document_finance->guarantor_ktp) == 1) { echo "checked"; } ?>" ></div>  KTP Penjamin
                             </td>
                             <td>
-                                <div class="checkbox <?php if($booking_document_finance->other == 1) { echo "checked"; } ?>" ></div>  Lainnya
+                                <div class="checkbox <?php if(isset($booking_document_finance->sku) == 1) { echo "checked"; } ?>" ></div>  SKU/SIUP
+                            </td>
+                            <td>
+                                <div class="checkbox <?php if(isset($booking_document_finance->family_card) == 1) { echo "checked"; } ?>" ></div>  Kartu Keluarga
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox <?php if(isset($booking_document_finance->electricity_bills) == 1) { echo "checked"; } ?>" ></div>  Rekening Listrik/PBB
+                            </td>
+                            <td>
+                                <div class="checkbox <?php if(isset($booking_document_finance->npwp) == 1) { echo "checked"; } ?>" ></div>  NPWP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="checkbox <?php if(isset($booking_document_finance->engine_friction) == 1) { echo "checked"; } ?>" ></div>  Gesekan Nomor Rangka dan Mesin
+                            </td>
+                            <td>
+                                <div class="checkbox <?php if(isset($booking_document_finance->other) == 1) { echo "checked"; } ?>" ></div>  Lainnya
                             </td>
                         </tr>
                         
