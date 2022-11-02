@@ -256,6 +256,7 @@
               @endforeach
             </div>
           </div>
+          @if(Auth::user()->user_level == 1)
           <div class="mb-3">
             <label class="form-label" for="basic-default-product-code">Status</label>
             <select id="status" class="select2 form-select" name="booking_status" required>
@@ -264,6 +265,7 @@
               <option value="2" <?php if($booking->booking_status == 2){ echo "selected"; } ?>>Tidak Disetujui</option>
             </select>
           </div>
+          @endif
           <div class="mb-3">
             <label class="form-label" for="basic-default-product-code">Status Pembayaran</label>
             <select id="status" class="select2 form-select" name="payment_status" required>
@@ -374,25 +376,25 @@
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="applicants_ktp" <?php if($booking_document_finance->applicants_ktp == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="applicants_ktp" <?php if(isset($booking_document_finance->applicants_ktp) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">KTP Pemohon</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="guarantor_ktp" <?php if($booking_document_finance->guarantor_ktp == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="guarantor_ktp" <?php if(isset($booking_document_finance->guarantor_ktp) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">KTP Penjamin</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="electricity_bills" <?php if($booking_document_finance->electricity_bills == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="electricity_bills" <?php if(isset($booking_document_finance->electricity_bills) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">Rekening Listrik/PBB</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="engine_friction" <?php if($booking_document_finance->engine_friction == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="engine_friction" <?php if(isset($booking_document_finance->engine_friction) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">Gesekan Nomor Rangka dan Mesin</label>
                   </div>
                 </div>
@@ -403,31 +405,31 @@
               <div class="col-md">
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="checking_account" <?php if($booking_document_finance->checking_account == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="checking_account" <?php if(isset($booking_document_finance->checking_account) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">Rekening Koran/Tabungan</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="salary_slip" <?php if($booking_document_finance->salary_slip == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="salary_slip" <?php if(isset($booking_document_finance->salary_slip) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">Slip Gaji/SKP</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="sku" <?php if($booking_document_finance->sku == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="sku" <?php if(isset($booking_document_finance->sku) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">SKU/SIUP</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3"> 
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="npwp_doc" <?php if($booking_document_finance->npwp == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="npwp_doc" <?php if(isset($booking_document_finance->npwp) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">NPWP</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="other" <?php if($booking_document_finance->other == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="other" <?php if(isset($booking_document_finance->other) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">Lainnya</label>
                   </div>
                 </div>
@@ -438,19 +440,19 @@
               <div class="col-md">
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="marriage_certificate" <?php if($booking_document_finance->marriage_certificate == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="marriage_certificate" <?php if(isset($booking_document_finance->marriage_certificate) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">Surat Nikah</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="wife_ktp" <?php if($booking_document_finance->wife_ktp == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="wife_ktp" <?php if(isset($booking_document_finance->wife_ktp) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">KTP Istri</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-check form-check-inline mt-3">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="family_card" <?php if($booking_document_finance->family_card == 1) { echo "checked"; } ?> value="1">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="family_card" <?php if(isset($booking_document_finance->family_card) == 1) { echo "checked"; } ?> value="1">
                     <label class="form-check-label" for="inlineCheckbox1">Kartu Keluarga</label>
                   </div>
                 </div>

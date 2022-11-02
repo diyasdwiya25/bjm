@@ -218,7 +218,7 @@ class BookingController extends Controller
             'finco' => $request->finco,
             'booking_total' => $request->booking_total,
             'payment_status' => $request->payment_status,
-            'booking_status' => $request->booking_status,
+            'booking_status' => $request->booking_status ?? 0,
             'notes' => $request->notes
          ]);
 
@@ -275,21 +275,42 @@ class BookingController extends Controller
          }
          
          $booking_document_finance = BookingDocumentFinance::where('id_booking',$id)->first();
-         $booking_document_finance->update([
-            'owner_ktp' => $request->owner_ktp ?? 0,
-            'applicants_ktp' => $request->applicants_ktp ?? 0,
-            'guarantor_ktp' => $request->guarantor_ktp ?? 0,
-            'electricity_bills' => $request->electricity_bills ?? 0,
-            'engine_friction' => $request->engine_friction ?? 0,
-            'checking_account' => $request->checking_account ?? 0,
-            'salary_slip' => $request->salary_slip ?? 0,
-            'sku' => $request->sku ?? 0,
-            'npwp' => $request->npwp_doc ?? 0,
-            'other' => $request->other ?? 0,
-            'marriage_certificate' => $request->marriage_certificate ?? 0,
-            'wife_ktp' => $request->wife_ktp ?? 0,
-            'family_card' => $request->family_card ?? 0,
-         ]);
+         if(isset($booking_document_finance)){
+            $booking_document_finance->update([
+               'owner_ktp' => $request->owner_ktp ?? 0,
+               'applicants_ktp' => $request->applicants_ktp ?? 0,
+               'guarantor_ktp' => $request->guarantor_ktp ?? 0,
+               'electricity_bills' => $request->electricity_bills ?? 0,
+               'engine_friction' => $request->engine_friction ?? 0,
+               'checking_account' => $request->checking_account ?? 0,
+               'salary_slip' => $request->salary_slip ?? 0,
+               'sku' => $request->sku ?? 0,
+               'npwp' => $request->npwp_doc ?? 0,
+               'other' => $request->other ?? 0,
+               'marriage_certificate' => $request->marriage_certificate ?? 0,
+               'wife_ktp' => $request->wife_ktp ?? 0,
+               'family_card' => $request->family_card ?? 0,
+            ]);
+         }
+         else {
+            $booking_document_finance = BookingDocumentFinance::create([
+               'id_booking' => $$id,
+               'owner_ktp' => $request->owner_ktp ?? 0,
+               'applicants_ktp' => $request->applicants_ktp ?? 0,
+               'guarantor_ktp' => $request->guarantor_ktp ?? 0,
+               'electricity_bills' => $request->electricity_bills ?? 0,
+               'engine_friction' => $request->engine_friction ?? 0,
+               'checking_account' => $request->checking_account ?? 0,
+               'salary_slip' => $request->salary_slip ?? 0,
+               'sku' => $request->sku ?? 0,
+               'npwp' => $request->npwp_doc ?? 0,
+               'other' => $request->other ?? 0,
+               'marriage_certificate' => $request->marriage_certificate ?? 0,
+               'wife_ktp' => $request->wife_ktp ?? 0,
+               'family_card' => $request->family_card ?? 0,
+            ]);
+         }
+         
 
          \Session::flash('success.message', 'Data berhasil diubah');
          return redirect()->route('booking.index');

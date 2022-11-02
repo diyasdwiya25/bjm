@@ -23,7 +23,7 @@
         <div class="d-flex align-items-start align-items-sm-center gap-4">
           <div class="button-wrapper">
           <a href="{{ route('booking.document.print', $booking->id_booking) }}" target="_blank">
-            <button type="button" class="btn btn-success account-image-reset mb-4">
+            <button type="button" class="btn btn-success account-image-reset mb-4" <?php if($booking->booking_status != 1) { echo "disabled"; } ?>>
               <!-- <i class="bx bx-reset d-block d-sm-none"></i> -->
               <span class="d-sm-block">Cetak</span>
             </button>
