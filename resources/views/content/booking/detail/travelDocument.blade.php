@@ -4,6 +4,12 @@
 
 @section('page-script')
 <script src="{{asset('assets/js/pages-account-settings-account.js')}}"></script>
+<style>
+  a.disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+</style>
 @endsection
 
 @section('content')
@@ -22,7 +28,7 @@
       <div class="card-body">
         <div class="d-flex align-items-start align-items-sm-center gap-4">
           <div class="button-wrapper">
-          <a href="{{ route('booking.document.print', $booking->id_booking) }}" target="_blank">
+          <a href="{{ route('booking.document.print', $booking->id_booking) }}" target="_blank" class="<?php if($booking->booking_status != 1) { echo "disabled"; } ?>">
             <button type="button" class="btn btn-success account-image-reset mb-4" <?php if($booking->booking_status != 1) { echo "disabled"; } ?>>
               <!-- <i class="bx bx-reset d-block d-sm-none"></i> -->
               <span class="d-sm-block">Cetak</span>

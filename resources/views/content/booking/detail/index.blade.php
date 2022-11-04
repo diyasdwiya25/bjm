@@ -4,6 +4,12 @@
 
 @section('page-script')
 <script src="{{asset('assets/js/pages-account-settings-account.js')}}"></script>
+<style>
+  a.disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+</style>
 @endsection
 
 @section('content')
