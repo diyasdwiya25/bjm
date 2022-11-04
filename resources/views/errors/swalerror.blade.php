@@ -50,4 +50,25 @@
             window.location.href = url;
         });
     });
+
+    $('body').on('click', '.sa-payment', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        var postId = $(this).data('id'); 
+        swal({
+            title: "Apakah anda yakin sudah menerima pembayaran ?",
+            text: "Kamu akan menerima pembayaran transaksi ini",
+            type: "success",
+            html: true,
+            showCancelButton: true,
+            confirmButtonClass: 'btn-success waves-effect waves-light',
+            confirmButtonText: "Ok, yakin",
+            cancelButtonText: "Batal",
+            closeOnConfirm: true,
+            closeOnCancel: true
+        },
+        function(){
+            window.location.href = url;
+        });
+    });
 </script>

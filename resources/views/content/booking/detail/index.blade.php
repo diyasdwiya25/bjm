@@ -31,8 +31,8 @@
               <span class="d-sm-block">Setujui</span>
             </button>
           </a>
-          <a href="{{ route('booking.approve.payment', $booking->id_booking) }}" data-id="{{ $booking->id_booking }}" title="Approve" class="sa-approve">
-            <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+          <a href="{{ route('booking.approve.payment', $booking->id_booking) }}" data-id="{{ $booking->id_booking }}" title="Approve" class="sa-payment <?php if($booking->booking_status != 1) { echo "disabled"; } ?>">
+            <button type="button" class="btn btn-outline-secondary account-image-reset mb-4" <?php if($booking->booking_status != 1) { echo "disabled"; } ?>>
               <!-- <i class="bx bx-reset d-block d-sm-none"></i> -->
               <span class="d-sm-block">Terima Pembayaran</span>
             </button>
@@ -40,8 +40,8 @@
         </div>
         @elseif(Auth::user()->user_level == 2)
           <div class="col-md-6">
-            <a href="{{ route('booking.approve.payment', $booking->id_booking) }}" data-id="{{ $booking->id_booking }}" title="Approve" class="sa-approve">
-              <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+            <a href="{{ route('booking.approve.payment', $booking->id_booking) }}" data-id="{{ $booking->id_booking }}" title="Approve" class="sa-payment <?php if($booking->booking_status != 1) { echo "disabled"; } ?>">
+              <button type="button" class="btn btn-outline-secondary account-image-reset mb-4" <?php if($booking->booking_status != 1) { echo "disabled"; } ?>>
                 <!-- <i class="bx bx-reset d-block d-sm-none"></i> -->
                 <span class="d-sm-block">Terima Pembayaran</span>
               </button>
@@ -70,13 +70,13 @@
                           @if(Auth::user()->user_level == 1 or Auth::user()->user_level == 2)
                           <div class="row">
                             <div class="col-md-12 text-end">
-                              <a href="{{ route('booking.detail.print', $booking->id_booking) }}" target="_blank" >
+                              <a href="{{ route('booking.detail.print', $booking->id_booking) }}" target="_blank" class="<?php if($booking->booking_status != 1) { echo "disabled"; } ?>">
                                 <button type="button" class="btn btn-success account-image-reset mb-4" <?php if($booking->booking_status != 1) { echo "disabled"; } ?>>
                                   <!-- <i class="bx bx-reset d-block d-sm-none"></i> -->
                                   <span class="d-sm-block">Cetak Invoice</span>
                                 </button>
                                 </a>
-                              <a href="{{ route('booking.spkPrint', $booking->id_booking) }}" class="" target="_blank">
+                              <a href="{{ route('booking.spkPrint', $booking->id_booking) }}" class="<?php if($booking->booking_status != 1) { echo "disabled"; } ?>" target="_blank">
                                 <button type="button" class="btn btn-success account-image-reset mb-4" <?php if($booking->booking_status != 1) { echo "disabled"; } ?>>
                                   <!-- <i class="bx bx-reset d-block d-sm-none"></i> -->
                                   <span class="d-sm-block">Cetak SPK</span>
