@@ -218,7 +218,7 @@ class BookingController extends Controller
             'cicilan_value' => $request->cicilan_value,
             'monthly_installment' => $request->monthly_installment,
             'finco' => $request->finco,
-            'finco_other' => $request->finco_other ?? NULL,
+            'finco_other' => $request->finco_other ?? "",
             'booking_total' => $request->booking_total,
             'payment_status' => $request->payment_status,
             'booking_status' => $request->booking_status ?? 0,
