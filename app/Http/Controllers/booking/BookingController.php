@@ -109,7 +109,7 @@ class BookingController extends Controller
                'id_booking' => $booking_id,
                'id_product' => $request->id_product,
                'type_price_product' => $request->type_price_product,
-               'price_product' => $request->product_price ?? 0,
+               'price_product' => $request->price_product ?? 0,
                'sales_program' => $request->sales_program,
                'id_subsidi' => $request->id_subsidi,
                'subsidi_value' => $request->subsidi_value,
@@ -209,7 +209,8 @@ class BookingController extends Controller
          $product = Product::select('product_id','product_price')->where('product_id',$request->id_product)->first();
          $booking->update([
             'id_product' => $request->id_product,
-            'price_product' => $request->product_price ?? 0,
+            'type_price_product' => $request->type_price_product,
+            'price_product' => $request->price_product ?? 0,
             'sales_program' => $product->sales_program,
             'id_subsidi' => $request->id_subsidi,
             'subsidi_value' => $request->subsidi_value,

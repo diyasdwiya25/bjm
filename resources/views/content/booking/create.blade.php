@@ -195,7 +195,7 @@
             <div class="col-md-3">
               <div class="mb-3">
                 <label class="form-label" for="basic-default-product-code">Rp</label>
-                <input type="number" class="form-control" id="price_product" placeholder="0123456789" name="price_product" disabled="disabled"/>
+                <input type="number" class="form-control" id="price_product" placeholder="0123456789" name="price_product" readonly/>
               </div>
             </div>
           </div>
@@ -218,7 +218,7 @@
             <div class="col-md-5">
               <div class="mb-3">
                 <label class="form-label" for="basic-default-product-code">Nominal Subsidi</label>
-                <input type="number" class="form-control" id="subsidi_value" placeholder="" name="subsidi_value" value="0" disabled/>
+                <input type="number" class="form-control" id="subsidi_value" placeholder="" name="subsidi_value" value="0" readonly/>
               </div>
             </div>
           </div>
@@ -574,7 +574,7 @@
             if ($(this).val() == "off") {
               price_input = document.getElementById("price_product");
               price_input.value = 0;
-              $('input[name="price_product"]').prop("disabled", false);
+              $('input[name="price_product"]').prop("readonly", false);
             } else {
               var productId = document.getElementById("id_product").value;
               var url = "{{ url('booking/getPrice') }}/" + productId;
@@ -586,7 +586,7 @@
                   console.log('input does not exist');
                 }
               });
-              $('input[name="price_product"]').prop("disabled", true);
+              $('input[name="price_product"]').prop("readonly", true);
             }
         });
     });

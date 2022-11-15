@@ -21,7 +21,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-fullname">Nilai Subsidi*</label>
-            <input type="number" class="form-control" id="basic-default-name" placeholder="Nilai Subsidi" name="subsidi_value " required/>
+            <input type="number" class="form-control" id="basic-default-name" placeholder="Nilai Subsidi" name="subsidi_value" required/>
           </div>
           <button type="submit" class="btn btn-primary">Kirim</button>
         </form>
