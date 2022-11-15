@@ -120,8 +120,8 @@
                 </div>
                 <div class="col-md-5">
                   <div class="mb-3">
-                    <label class="form-label" for="basic-default-product-code">HP</label>
-                    <input type="number" class="form-control" id="basic-default-name" name="no_hp" value="{{ $booking_guest->no_hp }}"/>
+                    <label class="form-label" for="basic-default-product-code">HP*</label>
+                    <input type="number" class="form-control" id="basic-default-name" name="no_hp" value="{{ $booking_guest->no_hp }}" required/>
                   </div>
                 </div>
               </div>
@@ -171,7 +171,7 @@
         <div class="card-body">
           <div class="mb-3">
             <label class="form-label" for="basic-default-branch">Type Motor*</label>
-            <select id="status" class="select2 form-select" name="id_product" required>
+            <select id="id_product" class="select2 form-select" name="id_product" required>
               @foreach($product as $row)
               <option value="{{ $row->product_id }}" <?php if($booking->product_id == $row->product_id) { echo "selected"; } ?>>{{ $row->product_name }} - {{ $row->product_type}}</option>
               @endforeach
@@ -182,19 +182,19 @@
             <label class="form-label" for="basic-default-product-code">Harga</label>
               <div class="col-md">
                 <div class="form-check form-check-inline mt-3">
-                  <input class="form-check-input" type="radio" id="inlineCheckbox1" name="type_price_product" <?php if($booking->type_price_product == 'otr') { echo "checked"; } ?> value="otr">
-                  <label class="form-check-label" for="inlineCheckbox1">OTR</label>
+                  <input class="form-check-input" type="radio" id="otr" name="type_price_product" <?php if($booking->type_price_product == 'otr') { echo "checked"; } ?> value="otr">
+                  <label class="form-check-label" for="otr">OTR</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" id="inlineCheckbox2" name="type_price_product" <?php if($booking->type_price_product == 'off') { echo "checked"; } ?> value="off">
-                  <label class="form-check-label" for="inlineCheckbox2">OFF</label>
+                  <input class="form-check-input" type="radio" id="off" name="type_price_product" <?php if($booking->type_price_product == 'off') { echo "checked"; } ?> value="off">
+                  <label class="form-check-label" for="off">OFF</label>
                 </div>
               </div>
             </div>
             <div class="col-md-3">
               <div class="mb-3">
                 <label class="form-label" for="basic-default-product-code">Rp</label>
-                <input type="number" class="form-control" id="basic-default-name" placeholder="0123456789" name="price_product" value="{{ $booking->price_product }}"/>
+                <input type="number" class="form-control" id="price_product" placeholder="0123456789" name="price_product" value="{{ $booking->price_product }}" <?php if($booking->type_price_product == 'otr') { echo "disabled"; } ?>/>
               </div>
             </div>
           </div>
@@ -217,7 +217,7 @@
             <div class="col-md-5">
               <div class="mb-3">
                 <label class="form-label" for="basic-default-product-code">Nominal Subsidi</label>
-                <input type="number" class="form-control" id="basic-default-name" placeholder="" name="subsidi_value" value="{{ $booking->subsidi_value }}"/>
+                <input type="number" class="form-control" id="subsidi_value" placeholder="" name="subsidi_value" value="{{ $booking->subsidi_value }}" disabled/>
               </div>
             </div>
           </div>
@@ -291,9 +291,20 @@
                   <label class="form-check-label" for="inlineCheckbox{{ $row->id }}">{{ $row->name }}</label>
                 </div>
               @endforeach
+              <div class="form-check form-check-inline mt-3">
+                <input class="form-check-input" type="radio" id="lainnya" name="finco" value="0" <?php if($booking->finco == 0) { echo "checked"; } ?>>
+                <label class="form-check-label" for="lainnya">LAINNYA</label>
+              </div>
             </div>
           </div>
-          
+          <div class="row">
+            <div class="col-md-12">
+              <div class="mb-3">
+                <label class="form-label" for="basic-default-product-code">Lainnya</label>
+                <input type="text" class="form-control" id="finco_other" placeholder="" name="finco_other" value="<?php if($booking->finco == 0) { echo $booking->finco_other; } ?>" <?php if($booking->finco != 0) { echo "disabled"; } ?>/>
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-md-2">
               <div class="mb-3">
@@ -571,5 +582,58 @@
           $('#imageResultText').attr('value', data_uri);
         });
     }
+
+    $(function () {
+        $("input[name='type_price_product']").change(function () {
+            if ($(this).val() == "off") {
+              price_input = document.getElementById("price_product");
+              price_input.value = 0;
+              $('input[name="price_product"]').prop("disabled", false);
+            } else {
+              var productId = document.getElementById("id_product").value;
+              var url = "{{ url('booking/getPrice') }}/" + productId;
+              $.get(url, function(data) {
+                price_input = document.getElementById("price_product");
+                if (price_input) {
+                  price_input.value = data.product_price;
+                } else {
+                  console.log('input does not exist');
+                }
+              });
+              $('input[name="price_product"]').prop("disabled", true);
+            }
+        });
+    });
+
+    $(function () {
+        $("select[name='id_subsidi']").change(function () {
+            if ($(this).val() == 0) {
+              subsidi_value = document.getElementById("subsidi_value");
+              subsidi_value.value = 0;
+            } else {
+              var url = "{{ url('booking/getSubsidi') }}/" + $(this).val();
+              $.get(url, function(data) {
+                subsidi_value = document.getElementById("subsidi_value");
+                if (subsidi_value) {
+                  subsidi_value.value = data.subsidi_value;
+                } else {
+                  console.log('input does not exist');
+                }
+              });
+            }
+        });
+    });
+
+    $(function () {
+        $("input[name='finco']").change(function () {
+            if ($(this).val() == 0) {
+              $('input[name="finco_other"]').prop("disabled", false);
+            } else {
+              note = document.getElementById("finco_other");
+              note.value = "";
+              $('input[name="finco_other"]').prop("disabled", true);
+            }
+        });
+    });
 </script>
 @endsection

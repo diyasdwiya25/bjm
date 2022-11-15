@@ -79,6 +79,8 @@ Route::get('/booking/document/{id}', $controller_path . '\booking\BookingControl
 Route::post('/booking/document/store/{id}', $controller_path . '\booking\BookingController@documentStore')->name('booking.document.store')->middleware('Role:SUPERADMIN,SALES ADMIN');
 Route::get('/booking/document/print/{id}', $controller_path . '\booking\BookingController@documentPrint')->name('booking.document.print')->middleware('Role:SUPERADMIN,SALES ADMIN');
 Route::get('/booking/spk/print/{id}', $controller_path . '\booking\BookingController@spkPrint')->name('booking.spkPrint')->middleware('Role:SUPERADMIN,SALES ADMIN');
+Route::get('/booking/getPrice/{id}', $controller_path . '\booking\BookingController@getPriceProduct')->name('booking.getPrice')->middleware('Role:SUPERADMIN,SALES ADMIN,SALES,CUSTOMER');
+Route::get('/booking/getSubsidi/{id}', $controller_path . '\booking\BookingController@getSubsidi')->name('booking.getSubsidi')->middleware('Role:SUPERADMIN,SALES ADMIN,SALES,CUSTOMER');
 // mediator
 Route::get('/mediator', $controller_path . '\mediator\MediatorController@index')->name('mediator.index')->middleware('Role:SUPERADMIN,SALES ADMIN');
 Route::get('/mediator/create', $controller_path . '\mediator\MediatorController@create')->name('mediator.create')->middleware('Role:SUPERADMIN,SALES ADMIN');

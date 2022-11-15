@@ -26,6 +26,10 @@
             <option value="1" <?php if($subsidi->status == 1){ echo "selected"; } ?>>Aktif</option>
           </select>
           </div>
+          <div class="mb-3">
+            <label class="form-label" for="basic-default-fullname">Nilai Subsidi*</label>
+            <input type="number" class="form-control" id="basic-default-name" placeholder="Nilai Subsidi" name="subsidi_value" value="{{ $subsidi->subsidi_value }}" required/>
+          </div>
           <button type="submit" class="btn btn-primary">Ubah</button>
         </form>
       </div>

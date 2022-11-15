@@ -49,9 +49,12 @@ $container = ($container ?? 'container-xxl');
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <div class="col-xs-12">
+                                            <div class="col-md-9">
                                             <h2>invoice<br>
                                             <span class="small">order #{{ $booking->id_booking }}</span></h2>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <img src="{{ asset('assets/img/icon/logo.png') }}" style="width: 150px;">
                                             </div>
                                         </div>
                                         </div>

@@ -109,7 +109,7 @@ class BookingController extends Controller
                'id_booking' => $booking_id,
                'id_product' => $request->id_product,
                'type_price_product' => $request->type_price_product,
-               'price_product' => $product->product_price ?? 0,
+               'price_product' => $request->product_price ?? 0,
                'sales_program' => $request->sales_program,
                'id_subsidi' => $request->id_subsidi,
                'subsidi_value' => $request->subsidi_value,
@@ -117,6 +117,7 @@ class BookingController extends Controller
                'cicilan_value' => $request->cicilan_value,
                'monthly_installment' => $request->monthly_installment,
                'finco' => $request->finco ?? 0,
+               'finco_other' => $request->finco_other ?? NULL,
                'booking_total' => $request->booking_total,
                'payment_status' => 0,
                'booking_status' => 0,
@@ -208,7 +209,7 @@ class BookingController extends Controller
          $product = Product::select('product_id','product_price')->where('product_id',$request->id_product)->first();
          $booking->update([
             'id_product' => $request->id_product,
-            'price_product' => $product->product_price ?? 0,
+            'price_product' => $request->product_price ?? 0,
             'sales_program' => $product->sales_program,
             'id_subsidi' => $request->id_subsidi,
             'subsidi_value' => $request->subsidi_value,
@@ -216,6 +217,7 @@ class BookingController extends Controller
             'cicilan_value' => $request->cicilan_value,
             'monthly_installment' => $request->monthly_installment,
             'finco' => $request->finco,
+            'finco_other' => $request->finco_other ?? NULL,
             'booking_total' => $request->booking_total,
             'payment_status' => $request->payment_status,
             'booking_status' => $request->booking_status ?? 0,
@@ -458,6 +460,16 @@ class BookingController extends Controller
             umask($oldmask);
         }
         return;
+    }
+
+    public function getPriceProduct($product_id)
+    {
+        return Product::select('product_price')->where('product_id',$product_id)->first();;
+    }
+
+    public function getSubsidi($subsidi_id)
+    {
+        return Subsidi::select('subsidi_value')->where('id',$subsidi_id)->first();;
     }
     
 }

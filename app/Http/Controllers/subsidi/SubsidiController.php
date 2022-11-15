@@ -11,7 +11,7 @@ class SubsidiController extends Controller
 {
    public function index()
    {
-      $subsidi = Subsidi::select('id','subsidi_type_name','status')
+      $subsidi = Subsidi::select('id','subsidi_type_name','subsidi_value','status')
       ->paginate(10);
       return view('content.subsidi.index',compact('subsidi'));
    }
@@ -24,6 +24,7 @@ class SubsidiController extends Controller
 		try {
             Subsidi::create([
                'subsidi_type_name' => $request->subsidi_type_name,
+               'subsidi_value' => $request->subsidi_value,
                'status' => 1
             ]);
 
@@ -37,7 +38,7 @@ class SubsidiController extends Controller
    }
    public function edit($id)
    {
-      $subsidi = Subsidi::select('id','subsidi_type_name','status')->where('id',$id)->first();
+      $subsidi = Subsidi::select('id','subsidi_type_name','subsidi_value','status')->where('id',$id)->first();
       return view('content.subsidi.edit',compact('subsidi'));
    }
    public function update(Request $request, $id)
@@ -46,6 +47,7 @@ class SubsidiController extends Controller
             $subsidi = Subsidi::where('id',$id)->first();
             $subsidi->update([
                'subsidi_type_name' => $request->subsidi_type_name,
+               'subsidi_value' => $request->subsidi_value,
                'status' => $request->status
             ]);
 

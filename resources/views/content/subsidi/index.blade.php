@@ -20,6 +20,7 @@
           <tr>
             <th>#</th>
             <th>Nama Subsidi</th>
+            <th>Nilai Subsidi</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
@@ -30,6 +31,7 @@
           <tr>
             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $key+ $subsidi->firstItem() }}</strong></td>
             <td>{{ $row->subsidi_type_name }}</td>
+            <td>{{ $row->subsidi_value }}</td>
             <td>
               @if($row->status == 1)
               <span class="badge bg-label-success me-1">Aktif</span>

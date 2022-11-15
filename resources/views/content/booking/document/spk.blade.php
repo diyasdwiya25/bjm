@@ -61,6 +61,9 @@
             </div>
           </td> -->
           <td colspan="3">
+            <div align="left">
+                <img src="{{ asset('assets/img/icon/logo.png') }}" style="width: 100px;">
+            </div>
             <div align="center">
               <span style="font-family: Verdana; font-size: medium;">
                 <b>SURAT PESANAN KENDARAAN</b>
