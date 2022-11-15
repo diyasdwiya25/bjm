@@ -285,7 +285,7 @@
             <div class="col-md-12">
               <div class="mb-3">
                 <label class="form-label" for="basic-default-product-code">Lainnya</label>
-                <input type="text" class="form-control" id="finco_other" placeholder="" name="finco_other" disabled/>
+                <input type="text" class="form-control" id="finco_other" placeholder="" name="finco_other" readonly/>
               </div>
             </div>
           </div>
@@ -613,11 +613,11 @@
     $(function () {
         $("input[name='finco']").change(function () {
             if ($(this).val() == 0) {
-              $('input[name="finco_other"]').prop("disabled", false);
+              $('input[name="finco_other"]').prop("readonly", false);
             } else {
               note = document.getElementById("finco_other");
               note.value = "";
-              $('input[name="finco_other"]').prop("disabled", true);
+              $('input[name="finco_other"]').prop("readonly", true);
             }
         });
     });
