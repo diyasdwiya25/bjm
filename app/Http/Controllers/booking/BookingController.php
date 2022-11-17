@@ -102,7 +102,7 @@ class BookingController extends Controller
    {
 		try {
             $booking_count = Booking::count();
-            $booking_id = "BOOK-".sprintf("%03d", $booking_count + 1);
+            $booking_id = "BOOK-".date('ymdHis').rand(0, 100);
             $product = Product::select('product_id','product_price')->where('product_id',$request->id_product)->first();
             $user = User::select('user.id','user.user_branch')->where('user.id',auth()->user()->id)->first();
             $booking = Booking::create([
@@ -117,7 +117,7 @@ class BookingController extends Controller
                'cicilan_value' => $request->cicilan_value,
                'monthly_installment' => $request->monthly_installment,
                'finco' => $request->finco ?? 0,
-               'finco_other' => $request->finco_other ?? "",
+               'finco_other' => $request->finco_other ?? " ",
                'booking_total' => $request->booking_total,
                'payment_status' => 0,
                'booking_status' => 0,
