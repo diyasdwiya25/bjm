@@ -71,7 +71,7 @@ Route::get('/booking/edit/{id}', $controller_path . '\booking\BookingController@
 Route::post('/booking/update/{id}', $controller_path . '\booking\BookingController@update')->name('booking.update')->middleware('Role:SUPERADMIN,SALES ADMIN,SALES,CUSTOMER');
 Route::get('/booking/delete/{id}', $controller_path . '\booking\BookingController@delete')->name('booking.delete')->middleware('Role:SUPERADMIN,SALES ADMIN,SALES,CUSTOMER');
 Route::get('/booking/approve/{id}', $controller_path . '\booking\BookingController@approve')->name('booking.approve')->middleware('Role:SUPERADMIN');
-Route::get('/booking/approve/payment/{id}', $controller_path . '\booking\BookingController@approvePayment')->name('booking.approve.payment')->middleware('Role:SUPERADMIN, SALES ADMIN');
+Route::get('/booking/approve/payment/{id}', $controller_path . '\booking\BookingController@approvePayment')->name('booking.approve.payment')->middleware('Role:SUPERADMIN,SALES ADMIN');
 //detail
 Route::get('/booking/detail/{id}', $controller_path . '\booking\BookingController@detail')->name('booking.detail')->middleware('Role:SUPERADMIN,SALES ADMIN,SALES,CUSTOMER');
 Route::get('/booking/detail/print/{id}', $controller_path . '\booking\BookingController@detailPrint')->name('booking.detail.print')->middleware('Role:SUPERADMIN,SALES ADMIN');
